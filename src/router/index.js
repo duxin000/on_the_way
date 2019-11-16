@@ -14,6 +14,7 @@ import Footer from "../components/dx/Footer.vue"  //底部
 import Recommend from "../components/dx/Recommend.vue"  //推荐
 import Title from "../components/dx/Title.vue"  //标题
 import header from "../components/dx/header.vue"  //头部导航
+import Upload from "../components/wz/Upload.vue"  //上传
 
 const routes = [ 
   {path: '/Lunbo', component: Lunbo},
@@ -21,6 +22,7 @@ const routes = [
     {path: '/Recommend', component: Recommend},
     {path: '/Title', component: Title},
     {path: '/header', component: header},
+    {path: '/Upload', component:Upload}
 ]
 
 const router = new VueRouter({
