@@ -29,11 +29,12 @@ export default {
 
 <style scoped>
     .lunbo{
-        height: 200px;
         margin: 0 auto;
+        height: 200px;
+        width: 98%;
+        margin-top: 5px;
     }
     .lunbo img{
-        width: 100%;
         height: 200px;
     }
 </style>
