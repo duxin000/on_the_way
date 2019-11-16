@@ -17,9 +17,6 @@ import Footer from "../components/dx/Footer.vue"  //底部
 //页面组件
 import index from "../views/dx/index.vue"  //头部导航
 import Upload from "../components/wz/Upload.vue"  //上传
-
-
-
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
@@ -29,11 +26,9 @@ const routes = [
     {path: '/index', component: index},
     {path: '/Upload', component:Upload}
 ]
-
 const router = new VueRouter({
   routes
 })
-
 export default router;
 
 
