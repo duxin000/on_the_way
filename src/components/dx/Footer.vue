@@ -4,10 +4,10 @@
         <mt-tab-container v-model="active">
             <!-- 2.子元素 -->
             <mt-tab-container-item id="tab1">
-                消息
+                <index></index>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab2">
-                通讯录
+                <recommend></recommend>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab3">
                 上传
@@ -16,7 +16,7 @@
                 社区
             </mt-tab-container-item>
             <mt-tab-container-item id="tab5">
-                个人中心
+                <index></index>
             </mt-tab-container-item>
         </mt-tab-container>
 
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import index from "../../views/dx/index.vue"  //头部导航
+import Recommend from "./Recommend.vue"  //推荐
 export default {
     data() {
         return {
@@ -59,6 +61,10 @@ export default {
             this.active=id;
         },
     },
+    components:{
+        "index":index,
+        "recommend":Recommend
+    }
 }
 </script>
 

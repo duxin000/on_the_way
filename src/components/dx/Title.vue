@@ -23,6 +23,8 @@ export default {
         position: relative;
         width: 100%;
         height:80px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     .title_bg{
         position: absolute;
