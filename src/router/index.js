@@ -25,7 +25,7 @@ const routes = [
     // {path: '/Title', component: Title},
     // {path: '/Header', component: Header},
     {path: '/index', component: index},
-    {path: '/Upload', component:Upload}
+    {path: '/Upload', component:Upload},
 ]
 const router = new VueRouter({
   routes
