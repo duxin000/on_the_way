@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 //http://127.0.0.1:8080/#/Recommend
 //http://127.0.0.1:8080/#/Title
 //http://127.0.0.1:8080/#/Header
+//http://127.0.0.1:8080/#/Upload
 Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
