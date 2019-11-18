@@ -11,7 +11,7 @@
 import Lunbo from "../../components/dx/Lunbo.vue"  //轮播
 import Recommend from "../../components/dx/Recommend.vue"  //推荐
 import Title from "../../components/dx/Title.vue"  //标题
-import Header from "../../components/dx/header.vue"  //头部导航
+import Header from "../../components/dx/Header.vue"  //头部导航
 
 export default {
     components:{
