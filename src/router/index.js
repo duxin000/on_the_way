@@ -16,7 +16,7 @@ import Footer from "../components/dx/Footer.vue"  //底部
 // import Header from "../components/dx/Header.vue"  //头部导航
 //页面组件
 import index from "../views/dx/index.vue"  //头部导航
-import Upload from "../components/wz/Upload.vue"  //上传
+import Upload from "../views/wz/Upload.vue"  //上传
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},

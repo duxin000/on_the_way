@@ -1,6 +1,18 @@
 <template>
-  <div>
-    <input type="text">
-    <mt-button>上传</mt-button>
-  </div>
+  <div>  
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    
+    <van-uploader v-model="fileList" multiple :max-count="9"/>
+  </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      fileList: [],
+    }
+  },
+}
+</script>
+<style>
+</style>
