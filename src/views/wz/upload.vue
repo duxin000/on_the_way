@@ -4,8 +4,8 @@
       <span>记 住 美 好 瞬 间</span>
     </div>
     <div class="btn">
-      <mt-button class="close">取消</mt-button>
-      <mt-button>发布</mt-button>
+      <mt-button @click="close">取消</mt-button>
+      <mt-button @click="publish">发布</mt-button>
     </div>
 
     <div class="applyInput">
@@ -31,9 +31,18 @@ export default {
     };
   },
   methods: {
+    publish(){
+      this.$toast("上传成功")
+    },
+    close(){
+      this.$messagebox.confirm("是否取消")
+      .then(res=>{
+        this.desc = ""
+      })
+    },
     beforeRead(file) {
-      if (file.type !== "image/jpeg") {
-        this.$toast("请上传 jpg 格式图片");
+      if (file.type !== "image") {
+        this.$toast("请上传图像文件");
         return false;
       }
       return true;
@@ -65,9 +74,6 @@ export default {
   justify-content: space-between;
   margin: 10px;
   border: 0;
-}
-.close {
-  background-color: #000;
 }
 textarea {
   border: 0;
