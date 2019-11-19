@@ -1,31 +1,33 @@
 <template>
   <div class="box">
-    <div class="b-1">
-      <p>个人主页</p>
-    </div>
-    <div class="head">
-      <img style="width:90px;height:90px" src="../../../public/imgs/wyf/head.png" alt="">
-      <h1>{{uname}}</h1>
-    </div>
-    <div class="jjk">
-      <div>
-        <p>12</p>
-        <p>作品</p>
+    <div class="b-2">
+        <div class="b-1">
+            <p style="margin-top:0 ; line-height: 50px;">个 人 主 页</p>
+          </div>
+      <div class="head">
+        <img style="width:90px;height:90px" src="../../../public/imgs/wyf/head.png" alt="">
+        <h1>{{uname}}</h1>
       </div>
-      <div>
-        <p>10</p>
-        <p>粉丝</p>
-      </div>
-      <div>
-        <p>30</p>
-        <p>关注</p>
-        <p></p>
+      <div class="jjk">
+        <div>
+          <p>12</p>
+          <p>作品</p>
+        </div>
+        <div>
+          <p>10</p>
+          <p>粉丝</p>
+        </div>
+        <div>
+          <p>30</p>
+          <p>关注</p>
+          <p></p>
+        </div>
       </div>
     </div>
     <div class="body">
       <van-tabs v-model="active" animated>
-        <van-tab v-for="(item,key) of list" :key="key" :title="item ">
-          内容 {{}}
+        <van-tab v-for="(item,i) of list" :key="i" :title="item ">
+          内容 {{ }}
         </van-tab>
       </van-tabs>
     </div>
@@ -64,9 +66,15 @@
   }
 
   .b-1 {
-    font-size: 28px;
+    font-weight: bold;
+    background: #fd9231;
+    font-size: 18px;
     height: 50px;
-    border-bottom: 1px solid #F6F6F6;
+    color: #fff;
+  }
+
+  .b-2 {
+    background-image: linear-gradient(to bottom, #FD9231, #FEAA87);
   }
 
   h1 {
@@ -74,8 +82,9 @@
   }
 
   .head {
+    padding-top: 50px;
     width: 90%;
-    margin: 40px auto 0 auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
   }
