@@ -7,13 +7,13 @@
                 <index></index>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab2">
-                <recommend></recommend>
+                <community-head></community-head>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab3">
                 上传
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
-                社区
+                收藏
             </mt-tab-container-item>
             <mt-tab-container-item id="tab5">
                 <index></index>
@@ -45,6 +45,7 @@
 <script>
 import index from "../../views/dx/index.vue"  //头部导航
 import Recommend from "./Recommend.vue"  //推荐
+import Communityhead from '../../views/dx/Community_head.vue'  //社区
 export default {
     data() {
         return {
@@ -63,7 +64,8 @@ export default {
     },
     components:{
         "index":index,
-        "recommend":Recommend
+        "recommend":Recommend,
+        "community-head":Communityhead
     }
 }
 </script>

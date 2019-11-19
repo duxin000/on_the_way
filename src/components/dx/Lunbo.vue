@@ -35,6 +35,7 @@ export default {
         margin-top: 5px;
     }
     .lunbo img{
+        width: 100%;
         height: 200px;
     }
 </style>

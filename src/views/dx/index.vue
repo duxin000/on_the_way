@@ -1,9 +1,11 @@
 <template>
     <div>
         <header-show></header-show>
-        <lunbo></lunbo>
-        <title-show></title-show>
-        <recommend></recommend>
+        <div class="main">
+            <lunbo></lunbo>
+            <title-show></title-show>
+            <recommend></recommend>
+        </div> 
     </div>
 </template>
 
@@ -22,3 +24,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+</style>
