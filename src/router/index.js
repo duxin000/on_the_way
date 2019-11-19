@@ -9,6 +9,7 @@ import VueRouter from 'vue-router'
 //http://127.0.0.1:8080/#/Header
 //http://127.0.0.1:8080/#/Upload
 //http://127.0.0.1:8080/#/Community_head
+//http://127.0.0.1:8080/#/Detail
 Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
@@ -20,6 +21,7 @@ import Footer from "../components/dx/Footer.vue"  //底部
 import index from "../views/dx/index.vue"  //头部导航
 import Upload from "../views/wz/upload.vue"  //上传
 import Community_head from "../views/dx/Community_head.vue"  //社区头部
+import Detail from "../views/dx/Detail.vue"  //详情头部
 import Login from "../views/wyf/Login.vue"      //登录
 import Personal from "../views/wyf/Personal.vue"  //个人主页
 const routes = [
@@ -31,6 +33,7 @@ const routes = [
     {path: '/index', component: index},
     {path: '/Upload', component:Upload},
     {path: '/Community_head', component:Community_head},
+    {path: '/Detail', component:Detail},  //详情头部
     {path: '/Login', component:Login},
     {path: '/Personal', component:Personal},
 ]

@@ -66,7 +66,7 @@ export default {
         overflow: hidden;
     }
     .rec-2{
-        padding: 3px 11px 0 11px;
+        padding: 3px 11px 5px 11px;
         font-size: 14px;
         color: #b4b4b4;
         white-space: nowrap;
