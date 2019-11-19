@@ -5,5 +5,8 @@
 </template>
 
 <style>
-
+  .main{
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
 </style>

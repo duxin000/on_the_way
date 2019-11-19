@@ -1,4 +1,5 @@
 <template>
+<div class="hometop">
   <div class="header">
     <!-- 首页头部 -->
     <div class="header_img">
@@ -10,14 +11,16 @@
     <div class="header_classily">
       <img id="more" @click="change" src="../../../public/imgs/dx/caidan.png" alt="">
     </div>
-    <div class="more_list" style="display:none" v-show="downicon" @click="change">
-        <p>更多精彩图集</p >
-        <router-link to="">户外</router-link>
-        <router-link to="">休闲</router-link>
-        <router-link to="">摄影</router-link>
-        <router-link to="">外拍</router-link>
-    </div>
   </div>
+  <div class="more_list" style="display:none" v-show="downicon" @click="change">
+      <p>更多精彩图集</p >
+      <router-link to="">户外</router-link>
+      <router-link to="">休闲</router-link>
+      <router-link to="">摄影</router-link>
+      <router-link to="">外拍</router-link>
+  </div>
+</div>
+  
 </template>
 <script>
 export default {
@@ -36,12 +39,25 @@ export default {
 
 
 <style scoped>
+  .hometop{
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 55px;
+    left: 0;
+    z-index: 20;
+  }
   .header{
+    position: fixed;
     display: flex;
     justify-content: space-between;
     background: #fdf4e5;
     align-items: center;
-    height: 60px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
   }
   .header_img{
     width: 100px;
@@ -81,11 +97,11 @@ export default {
   }
   .more_list{
     position:absolute;
-    top:60px;
-    bottom: 40px;
+    top:0;
+    bottom: 0;
     width: 100%;
     background:rgba(0, 0, 0,.7);
-    z-index: 1;
+    z-index: 10;
   }
   .more_list p{
     font-size:32px;
