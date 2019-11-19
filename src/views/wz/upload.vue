@@ -55,9 +55,10 @@ export default {
   height: 50px;
   background: #fd9231;
   line-height: 50px;
-  font-family: "宋体";
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
+  color:#fff;
 }
 .btn {
   display: flex;
