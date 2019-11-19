@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="title">
+    <div class="title_span">
       <span>记 住 美 好 瞬 间</span>
     </div>
     <div class="btn">
@@ -51,7 +51,7 @@ export default {
 };
 </script>
 <style>
-.title {
+.title_span {
   height: 50px;
   background: #fd9231;
   line-height: 50px;
