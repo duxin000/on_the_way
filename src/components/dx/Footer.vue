@@ -9,13 +9,10 @@
             <mt-tab-container-item id="tab2">
                 <community-head></community-head>
             </mt-tab-container-item>
-            <mt-tab-container-item id="tab3">
+            <mt-tab-container-item id="tab">
                 上传
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
-                收藏
-            </mt-tab-container-item>
-            <mt-tab-container-item id="tab5">
                 <index></index>
             </mt-tab-container-item>
         </mt-tab-container>
@@ -33,9 +30,6 @@
                 <img slot="icon" src="../../../public/imgs/dx/ziyuan.png">上传
             </mt-tab-item>
             <mt-tab-item id="tab4">
-                <img slot="icon" src="../../../public/imgs/dx/shoucang.png">收藏
-            </mt-tab-item>
-            <mt-tab-item id="tab5">
                 <img slot="icon" src="../../../public/imgs/dx/gerenzhongxin.png">个人中心
             </mt-tab-item>
         </mt-tabbar>

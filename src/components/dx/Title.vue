@@ -1,5 +1,5 @@
 <template>
-    <div class="title">
+    <div class="title1">
         <div class="title_bg">
             <a href="javascript:;"></a>
         </div>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-    .title{
+    .title1{
         position: relative;
         width: 100%;
         height:80px;

@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="top">
-            社&nbsp;&nbsp;区
+            社&nbsp;&nbsp;&nbsp;&nbsp;区
         </div>
         <div class="main">
             <recommend></recommend>
@@ -28,11 +28,13 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        background: #fdf4e5;
-        font-size: 15px;
+        background: #fd9231;
+        font-size: 18px;
         line-height: 50px;
         height: 50px;
         text-align: center;
+        font-weight: bold;
+        color: #fff;
     }
 </style>
 
