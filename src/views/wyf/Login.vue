@@ -2,7 +2,7 @@
   <div class="box2">
     <div class="box">
       <div class="logon">
-        <img style="width:70px;height:70px" src="../../../public/img/head.png" alt="">
+        <img style="width:70px;height:70px" src="../../../public/imgs/wyf/head.png" alt="">
         <p class="thick">账号密码登录</p>
       </div>
       <mt-field label="用户名" placeholder="请输入用户名" v-model="uname"></mt-field>
@@ -62,7 +62,7 @@
     height: 100%;
     position: absolute;
     top:0;left: 0;top:0;right: 0;
-    background: url("../../../public/img/bodybg.png") no-repeat #ff6148;
+    background: url("../../../public/imgs/wyf/bodybg.png") no-repeat #ff6148;
   }
   .picture {
     display: flex;
