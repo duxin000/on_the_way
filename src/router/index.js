@@ -30,7 +30,7 @@ const routes = [
     {path: '/index', component: index},
     {path: '/Upload', component:Upload},
     {path: '/Community_head', component:Community_head},
-    {path: '/Login',component:Login}
+    {path: '/Login',component:Login},
 ]
 const router = new VueRouter({
   routes
