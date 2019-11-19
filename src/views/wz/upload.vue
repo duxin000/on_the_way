@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="title">
-      <span>记录点滴生活</span>
+    <div class="title_span">
+      <span>记 住 美 好 瞬 间</span>
     </div>
     <div class="btn">
       <mt-button class="close">取消</mt-button>
@@ -51,12 +51,14 @@ export default {
 };
 </script>
 <style>
-.title {
-  padding: 10px;
-  background: #ccc;
+.title_span {
+  height: 50px;
+  background: #fd9231;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  font-family: "宋体";
-  font-size: 25px;
+  color:#fff;
 }
 .btn {
   display: flex;
