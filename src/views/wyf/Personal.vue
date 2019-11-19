@@ -25,7 +25,7 @@
     <div class="body">
       <van-tabs v-model="active" animated>
         <van-tab v-for="(item,key) of list" :title="item ">
-          内容 {{ index }}
+          内容 {{}}
         </van-tab>
       </van-tabs>
     </div>
