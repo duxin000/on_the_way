@@ -13,6 +13,8 @@ Vue.use(Vant);
 import { Uploader } from 'vant';
 Vue.use(Uploader);
 
+import { Tab, Tabs } from 'vant';  //引用vant标签页
+Vue.use(Tab).use(Tabs);
 Vue.config.productionTip = false
 
 import axios from 'axios'

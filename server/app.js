@@ -22,7 +22,7 @@ var createFolder = function(folder){
  };
  var uploadFolder = './public/upload';
  createFolder(uploadFolder);
-app.listen(4040);
+app.listen(5050);
 //使用body-parser中间件
 app.use(bodyParser.urlencoded({extended:false}));
 //托管静态资源到public目录下
