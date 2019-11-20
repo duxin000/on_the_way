@@ -4,12 +4,12 @@
       <span>记 住 美 好 瞬 间</span>
     </div>
     <div class="btn">
-      <mt-button class="close">取消</mt-button>
-      <mt-button>发布</mt-button>
+      <mt-button @click="close">取消</mt-button>
+      <mt-button @click="publish">发布</mt-button>
     </div>
 
     <div class="applyInput">
-      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5" />
+      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5"  id="msg"/>
       <p>{{t}}/300</p>
     </div>
     <van-uploader
@@ -31,15 +31,48 @@ export default {
     };
   },
   methods: {
+    publish(){
+      this.$toast("上传成功")
+      var d = new Date,
+      hours = d.getHours(),
+      minutes = d.getMinutes();
+      var time=[hours,minutes].join(':');
+      console.log(time);
+      var $msg = document.getElementById("msg")
+      console.log($msg.value);
+    },
+    uploadFile: function () {
+      var item = {
+          name: file.name,
+          uploadPercentage: 0
+      };
+      this.files.push(item);
+      var fd = new FormData();
+      fd.append('logo', file);
+      console.log(fd);
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://127.0.0.1:5050/users/upload', true);
+      xhr.upload.addEventListener('progress', function (e) {
+          item.uploadPercentage = Math.round((e.loaded * 100) / e.total);
+      }, false);
+      xhr.send(fd);
+    },
+    close(){
+      this.$messagebox.confirm("是否取消")
+      .then(res=>{
+        this.desc = ""
+      })
+    },
     beforeRead(file) {
       if (file.type !== "image/jpeg") {
-        this.$toast("请上传 jpg 格式图片");
+        this.$toast("请上传图像文件");
         return false;
       }
       return true;
     },
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
+      
       console.log(file);
     }
   },
@@ -66,9 +99,6 @@ export default {
   margin: 10px;
   border: 0;
 }
-.close {
-  background-color: #000;
-}
 textarea {
   border: 0;
   margin-top: 10px;
@@ -77,7 +107,7 @@ textarea {
   text-align: right;
 }
 textarea {
-  width: 84%;
+  width: 82%;
   margin: 10px 30px 0 30px;
 }
 .applyInput {

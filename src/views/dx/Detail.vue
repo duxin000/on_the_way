@@ -18,6 +18,18 @@
                 <span class="title-1-1">丽江</span>
                 <span class="title-1-2">最佳观赏时间：夏季</span>
             </div>
+            <div  class="title-2">
+                <p>早上自由逛【和顺古镇】静谧的晨曦，适时出发途径【龙江特大桥】（上午桥下有云海的几率较大），抵达【潞江坝】后，开始了真正意义上的怒江之旅，沿江北上，途径怒江自治州州府所在地【六库】，AA午餐。继续前行，精心挑选怒江上宽而惊险的一段，特别安排</p>
+            </div>
+            <div class="title-3">
+                <img src="../../../public/imgs/dx/dianzan.png" alt="">
+                摄点：景观详情
+            </div>
+            <div class="title-4">
+                <img src="../../../public/imgs/dx/detail1.jpg" alt="">
+                <img src="../../../public/imgs/dx/detail2.jpg" alt="">
+                <img src="../../../public/imgs/dx/detail3.jpg" alt="">
+            </div>
         </div>
     </div>
 </template>
@@ -90,5 +102,33 @@ export default {
     }
     .title-1-2{
         margin-left: 50px;
+    }
+    .title-2{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .title-3{
+        width: 96%;
+        margin: 0 auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #ff9b00;
+        border: 1px dashed #fcbc00;
+        background: #fffde1;
+    }
+    .title-3 img{
+        vertical-align: middle;
+        margin-left: 10px;
+        padding-bottom: 5px;
+        width: 28px;
+        height: 28px;
+    }
+    .title-4{
+        padding-top: 10px;
+        width: 98%;
+        margin: 0 auto;
+    }
+    .title-4 img{
+        width: 100%;
     }
 </style>
