@@ -30,6 +30,29 @@
                 <img src="../../../public/imgs/dx/detail2.jpg" alt="">
                 <img src="../../../public/imgs/dx/detail3.jpg" alt="">
             </div>
+            <div class="title-3">
+                <img src="../../../public/imgs/dx/comment.png" alt="">
+                评论：网友评价
+            </div>
+            <div class="title-5">
+                <textarea placeholder="请输入要评论的内容"></textarea>
+            </div>
+            <div class="title-6">
+                <button>发布评论</button>
+            </div>
+            <div class="title-7">
+                <div class="tit-left">
+                    <router-link to="/" >
+                        <img src="../../../public/imgs/dx/shouye.png" alt="">
+                    </router-link>
+                </div>
+                <div class="tit-canter">
+                    <button>加入收藏<img src="../../../public/imgs/dx/shoucang.png" alt=""></button>
+                </div>
+                <div class="tit-right">
+                    <button>点赞<img src="../../../public/imgs/dx/dianzan2.png" alt=""></button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -130,5 +153,77 @@ export default {
     }
     .title-4 img{
         width: 100%;
+    }
+    .title-5{
+        width: 96%;
+        height: 80px;
+        margin: 0 auto;
+        outline: #e0e0e0;
+        background-color: #fff;
+        font-size: 16px;
+        padding: 15px 2px;
+        border: 1px solid #fcbc00;
+        margin-top: 5px;
+    }
+    .textarea{
+        width: 100%;
+    }
+    .title-6{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .title-6 button{
+        width: 96%;
+        height: 40px;
+        background: #fcbc00;
+        border: none;
+    }
+    .title-7{
+        width: 100%;
+        height: 55px;
+        margin-bottom: 10px;
+    }
+    .tit-left{
+        float: left;
+        width: 25%;
+        text-align: center;
+    }
+    .tit-left img{
+        width: 40px;
+        height: 40px;
+        margin-bottom: -30px;
+    }
+    .tit-canter{
+        text-align: center;
+        width: 50%;
+        float: left;
+        height: 55px;
+    }
+    .tit-canter img{
+        margin-left: 20px;
+        vertical-align: middle;
+        padding-bottom: 2px;
+    }
+    .tit-canter button{
+        width: 95%;
+        height: 55px;
+        border-radius: 8px;
+        border: none;
+    }
+    .tit-right{
+        width: 25%;
+        float: left;
+        text-align: center;
+    }
+    .tit-right img{
+        vertical-align: middle;
+        margin-left: 10px;
+        padding-bottom: 5px;
+    }
+    .tit-right button{
+        width: 95%;
+        height: 55px;
+        border-radius: 8px;
+        border: none;
     }
 </style>
