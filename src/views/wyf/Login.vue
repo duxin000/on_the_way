@@ -10,7 +10,7 @@
       <mt-button class="setting"  @click="login">点击登录</mt-button>
     </div>
     <div class="post">
-       <p>赶紧的来注册！/ <a style="color:red" href="">立即注册</a></p>
+       <p>赶紧的来注册！/ <router-link  to="/Logon">立即注册</router-link></p>
     </div>
   </div>
 </template>
@@ -52,17 +52,18 @@
     text-align: center;
     width: 70%;
     padding:20px;
-    background: #FEBEB4;
+    background: #5782be;
     margin: 0 auto;
     border-bottom-left-radius:5px;
     border-bottom-right-radius:5px; 
-    color: #676CA5; 
+    color: #fff; 
   }
   .box2{
     height: 100%;
     position: absolute;
     top:0;left: 0;top:0;right: 0;
-    background: url("../../../public/imgs/wyf/bodybg.png") no-repeat #ff6148;
+    background: url("../../../public/imgs/wyf/head1.jpg") no-repeat #1a4e97;
+    background-size: 100%;
   }
   .picture {
     display: flex;
@@ -94,7 +95,7 @@
   }
   .setting {
     display: block ;
-    background: #EB7A38;
+    background-image: linear-gradient(to right,#044094,#2d76dc);
     width: 85%;
     border-radius:20px; 
     margin: 0 auto;
