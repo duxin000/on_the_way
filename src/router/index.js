@@ -24,6 +24,7 @@ import Community_head from "../views/dx/Community_head.vue"  //社区头部
 import Detail from "../views/dx/Detail.vue"  //详情头部
 import Login from "../views/wyf/Login.vue"      //登录
 import Personal from "../views/wyf/Personal.vue"  //个人主页
+import Logon from "../views/wyf/Logon.vue"       //注册
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
@@ -36,6 +37,7 @@ const routes = [
     {path: '/Detail', component:Detail},  //详情头部
     {path: '/Login', component:Login},
     {path: '/Personal', component:Personal},
+    {path: '/Logon', component:Logon},
 ]
 const router = new VueRouter({
   routes

@@ -8,7 +8,8 @@ USE yxk;
 CREATE TABLE yxk_login(
   uid INT PRIMARY KEY AUTO_INCREMENT,            
   uname VARCHAR(25),
-  upwd  VARCHAR(32)
+  upwd  VARCHAR(32),
+  phone VARCHAR(16)
 );
 
 /***首页轮播图***/
@@ -44,13 +45,13 @@ CREATE TABLE yxk_upload(
   login_id INT,         #用户编号
   time BIGINT,          #上传时间
   url  VARCHAR(128),    #图片路径
-  address VARCHAR(128), #发表文字
+  address VARCHAR(128) #发表文字
 )
 /*---------------------------*/
 /***用户登录数据插入***/
 INSERT INTO yxk_login VALUES
-(NULL,'tom',md5('123')),
-(NULL,'juery',md5('123'));
+(NULL,'tom',md5('123'),'13501234567'),
+(NULL,'juery',md5('123'),'13501234567');
  
  /***轮播图插入***/
  /*INSERT INTO yxk_chart VALUES*/

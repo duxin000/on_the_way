@@ -67,14 +67,14 @@
 
   .b-1 {
     font-weight: bold;
-    background: #fd9231;
+    background: #104086;
     font-size: 18px;
     height: 50px;
     color: #fff;
   }
 
   .b-2 {
-    background-image: linear-gradient(to bottom, #FD9231, #FEAA87);
+    background-image: linear-gradient(to bottom, #032C67,#245DB2, #fff);
   }
 
   h1 {
