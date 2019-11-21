@@ -46,12 +46,14 @@ export default {
         text-align: center;
         font-weight: bold;
         color: #fff;
+        z-index: 300;
     }
     .body {
         margin: 0px auto 0 auto;
     }
     .Notifier{
         margin-top:50px;
+        z-index: 200;
     }
 </style>
 

@@ -10,10 +10,10 @@
                 <community-head></community-head>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab3">
-                上传
+                <upload></upload>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
-                <index></index>
+                <personal></personal>
             </mt-tab-container-item>
         </mt-tab-container>
 
@@ -40,6 +40,8 @@
 import index from "../../views/dx/index.vue"  //头部导航
 import Recommend from "./Recommend.vue"  //推荐
 import Communityhead from '../../views/dx/Community_head.vue'  //社区
+import Personal from '../../views/wyf/Personal.vue'  //个人主页
+import upload from '../../views/wz/upload.vue'  //个人主页
 export default {
     data() {
         return {
@@ -59,7 +61,9 @@ export default {
     components:{
         "index":index,
         "recommend":Recommend,
-        "community-head":Communityhead
+        "community-head":Communityhead,
+        "personal":Personal,
+        "upload":upload
     }
 }
 </script>
