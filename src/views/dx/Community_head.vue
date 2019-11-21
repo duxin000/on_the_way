@@ -39,7 +39,7 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        background: #1a4e97;
+        background: #2971d5;
         font-size: 18px;
         line-height: 50px;
         height: 50px;

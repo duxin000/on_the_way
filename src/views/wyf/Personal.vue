@@ -67,7 +67,7 @@
 
   .b-1 {
     font-weight: bold;
-    background: #104086;
+    background: #2971d5;
     font-size: 18px;
     height: 50px;
     color: #fff;
