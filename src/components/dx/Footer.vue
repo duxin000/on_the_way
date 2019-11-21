@@ -9,7 +9,7 @@
             <mt-tab-container-item id="tab2">
                 <community-head></community-head>
             </mt-tab-container-item>
-            <mt-tab-container-item id="tab">
+            <mt-tab-container-item id="tab3">
                 上传
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">

@@ -14,7 +14,7 @@ Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
 import Footer from "../components/dx/Footer.vue"  //底部
-// import Recommend from "../components/dx/Recommend.vue"  //推荐
+import Recommend from "../components/dx/Recommend.vue"  //推荐
 // import Title from "../components/dx/Title.vue"  //标题
 // import Header from "../components/dx/Header.vue"  //头部导航
 //页面组件
@@ -28,7 +28,7 @@ import Logon from "../views/wyf/Logon.vue"       //注册
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
-    // {path: '/Recommend', component: Recommend},
+    {path: '/Recommend', component: Recommend},
     // {path: '/Title', component: Title},
     // {path: '/Header', component: Header},
     {path: '/index', component: index},

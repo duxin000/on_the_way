@@ -39,14 +39,6 @@ export default {
 
 
 <style scoped>
-  .hometop{
-    position: fixed;
-    top: 50px;
-    right: 0;
-    bottom: 55px;
-    left: 0;
-    z-index: 20;
-  }
   .header{
     position: fixed;
     display: flex;
@@ -96,9 +88,11 @@ export default {
     height: 25px;
   }
   .more_list{
-    position:absolute;
-    top:0;
-    bottom: 0;
+    position:fixed;
+    top: 50px;
+    right: 0;
+    bottom: 55px;
+    left: 0;
     width: 100%;
     background:rgba(0, 0, 0,.7);
     z-index: 10;
