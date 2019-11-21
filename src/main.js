@@ -16,6 +16,10 @@ Vue.use(Uploader);
 import { Tab, Tabs } from 'vant';  //引用vant标签页
 Vue.use(Tab).use(Tabs);
 import { Field } from 'vant';      //引用vant输入框
+
+import { NoticeBar } from 'vant';
+Vue.use(NoticeBar);      //引入vant通知栏
+
 Vue.use(Field);
 Vue.config.productionTip = false
 

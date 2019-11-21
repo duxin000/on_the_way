@@ -43,7 +43,7 @@ export default {
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background: #fd9231;
+    background: #1a4e97;
     align-items: center;
     height: 50px;
     top: 0;

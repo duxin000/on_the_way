@@ -1,6 +1,7 @@
 <template>
     <div  class="header">
         <div class="top">
+            <router-link to="/Community_head">1</router-link>
             说&nbsp;走&nbsp;就&nbsp;走&nbsp;的&nbsp;旅&nbsp;行
         </div>
         <div class="main1">

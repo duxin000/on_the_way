@@ -28,7 +28,7 @@ export default {
     }
     .title_bg{
         position: absolute;
-        background-image: url(../../../public/imgs/dx/bg.png);
+        background: url(../../../public/imgs/dx/bg.png) no-repeat;
         width: 90%;
         height: 80px;
         left: 5%;
