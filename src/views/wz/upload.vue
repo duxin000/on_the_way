@@ -86,7 +86,7 @@ export default {
 <style>
 .title_span {
   height: 50px;
-  background: #fd9231;
+  background: #2971D5;
   line-height: 50px;
   font-size: 18px;
   font-weight: bold;
