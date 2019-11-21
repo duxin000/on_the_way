@@ -1,12 +1,14 @@
 <template>
     <div  class="header">
         <div class="top">
-            <router-link to="/Community_head">1</router-link>
+            <router-link to="/">
+                <img src="../../../public/imgs/dx/fanhui.png" alt="">
+            </router-link>
             说&nbsp;走&nbsp;就&nbsp;走&nbsp;的&nbsp;旅&nbsp;行
         </div>
         <div class="main1">
             <div>
-                <lunbo></lunbo>
+                <Detail-lunbo></Detail-lunbo>
             </div>
             <div>
                 <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
@@ -60,10 +62,10 @@
 
 
 <script>
-import Lunbo from "../../components/dx/Lunbo.vue"  //轮播
+import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
 export default {
     components:{
-        "lunbo":Lunbo,
+        "Detail-lunbo":Detail_lunbo,
     }
 }
 </script>
@@ -78,13 +80,19 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        background: #fd9231;
+        background: #2971d5;
         font-size: 18px;
         line-height: 50px;
         height: 50px;
         text-align: center;
         font-weight: bold;
         color: #fff;
+        z-index: 300;
+    }
+    .top img{
+        position: absolute;
+        left: 10px;
+        top: 8px;
     }
     .rec-1{
         display: block;
