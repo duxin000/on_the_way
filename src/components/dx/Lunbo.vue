@@ -1,43 +1,47 @@
 <template>
     <div class="lunbo">
-        <mt-swipe :auto="5000"  :show-indicators="false">
-            <mt-swipe-item>
-                <img src="../../../public/imgs/dx/1.jpg" alt="">
-            </mt-swipe-item>
-            <mt-swipe-item>
-                <img src="../../../public/imgs/dx/2.jpg" alt="">
-            </mt-swipe-item>
-            <mt-swipe-item>
-                <img src="../../../public/imgs/dx/3.jpg" alt="">
-            </mt-swipe-item>
-            <mt-swipe-item>
-                <img src="../../../public/imgs/dx/4.jpg" alt="">
+        <mt-swipe :auto="5000" :show-indicators="false">
+            <mt-swipe-item v-for="(item,i) of list" :key="i">
+                <img :src="`http://127.0.0.1:5050/${item.img}`" alt="">
             </mt-swipe-item>
         </mt-swipe>
     </div>
-</template> 
+</template>
 
 <script>
-export default {
-    data() {
-        return {
-            
-        }  
-    },
-}
+    export default {
+        data() {
+            return {
+                list: []
+            }
+        },
+        methods: {
+            abc() {
+                var url = "homepage/home/";
+                this.axios.get(url).then(res => {
+                    this.list = res.data;
+                    console.log(this.list);
+                }).catch(err => {
+                    console.log(err);
+                })
+            }
+        },
+        created() {
+            this.abc();
+        },
+    }
 </script>
 
 <style scoped>
-    .lunbo{
+    .lunbo {
         margin: 0 auto;
         height: 200px;
         width: 98%;
         margin-top: 5px;
     }
-    .lunbo img{
+
+    .lunbo img {
         width: 100%;
         height: 200px;
     }
 </style>
-
-

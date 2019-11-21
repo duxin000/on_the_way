@@ -3,7 +3,7 @@
   <div class="header">
     <!-- 首页头部 -->
     <div class="header_img">
-      <img src="../../../public/imgs/dx/logo.jpg" alt="">
+      <img src="../../../public/imgs/dx/logo2_white.png" alt="">
     </div>
     <div class="header_input">
       <input type="text">
@@ -51,7 +51,7 @@ export default {
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background: #fd9231;
+    background: #2971d5;
     align-items: center;
     height: 50px;
     top: 0;

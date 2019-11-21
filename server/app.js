@@ -7,8 +7,9 @@ var multer=require('multer');
 var fs=require('fs');
 //引用路由模块
 var users=require("./routes/users");
-
+var homepage=require("./routes/homepage");
 var app = express();
+
 app.use(cors({
   origin:["http://127.0.0.1:8080","http://localhost:8080"],
   credentials:true
@@ -57,3 +58,4 @@ app.post('/upload', upload.single('logo'), function(req, res, next){
 });
 
 app.use("/users",users);
+app.use("/homepage",homepage);
