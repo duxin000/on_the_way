@@ -1,7 +1,9 @@
 <template>
     <div  class="header">
         <div class="top">
-            <router-link to="/Community_head">1</router-link>
+            <router-link to="/">
+                <img src="../../../public/imgs/dx/fanhui.png" alt="">
+            </router-link>
             说&nbsp;走&nbsp;就&nbsp;走&nbsp;的&nbsp;旅&nbsp;行
         </div>
         <div class="main1">
@@ -78,13 +80,19 @@ export default {
         top: 0;
         left: 0;
         right: 0;
-        background: #fd9231;
+        background: #2971d5;
         font-size: 18px;
         line-height: 50px;
         height: 50px;
         text-align: center;
         font-weight: bold;
         color: #fff;
+        z-index: 300;
+    }
+    .top img{
+        position: absolute;
+        left: 10px;
+        top: 8px;
     }
     .rec-1{
         display: block;
