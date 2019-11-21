@@ -8,7 +8,7 @@
         </div>
         <div class="main1">
             <div>
-                <lunbo></lunbo>
+                <Detail-lunbo></Detail-lunbo>
             </div>
             <div>
                 <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
@@ -62,10 +62,10 @@
 
 
 <script>
-import Lunbo from "../../components/dx/Lunbo.vue"  //轮播
+import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
 export default {
     components:{
-        "lunbo":Lunbo,
+        "Detail-lunbo":Detail_lunbo,
     }
 }
 </script>

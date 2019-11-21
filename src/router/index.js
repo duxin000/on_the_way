@@ -10,6 +10,8 @@ import VueRouter from 'vue-router'
 //http://127.0.0.1:8080/#/Upload
 //http://127.0.0.1:8080/#/Community_head
 //http://127.0.0.1:8080/#/Detail
+//http://127.0.0.1:8080/#/Slide
+//http://127.0.0.1:8080/#/Detail_lunbo
 Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
@@ -25,6 +27,8 @@ import Detail from "../views/dx/Detail.vue"  //详情头部
 import Login from "../views/wyf/Login.vue"      //登录
 import Personal from "../views/wyf/Personal.vue"  //个人主页
 import Logon from "../views/wyf/Logon.vue"       //注册
+import Slide from "../components/dx/Slide.vue"       //滑动解锁
+import Detail_lunbo from "../components/dx/Detail_lunbo.vue"       //详情轮播图
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
@@ -38,6 +42,8 @@ const routes = [
     {path: '/Login', component:Login},
     {path: '/Personal', component:Personal},
     {path: '/Logon', component:Logon},
+    {path: '/Slide', component:Slide},
+    {path: '/Detail_lunbo', component:Detail_lunbo},
 ]
 const router = new VueRouter({
   routes
