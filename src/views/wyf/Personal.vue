@@ -46,7 +46,10 @@
       pol() {
         var url = "/users/person";
         this.axios.get(url).then(res => {
-          console.log(res.data);
+          if(res.data.code==-1){
+            this.$messagebox('消息', '请先登录');
+            this.$router.push("/Login");
+          }
           this.uname = res.data.uname;
         })
       },
@@ -67,14 +70,14 @@
 
   .b-1 {
     font-weight: bold;
-    background: #104086;
+    background: #2C93ED;
     font-size: 18px;
     height: 50px;
     color: #fff;
   }
 
   .b-2 {
-    background-image: linear-gradient(to bottom, #032C67,#245DB2, #fff);
+    background-image: linear-gradient(to bottom, #37A3FD,#00D2FF);
   }
 
   h1 {

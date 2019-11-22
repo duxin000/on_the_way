@@ -20,6 +20,9 @@ import { Field } from 'vant';      //引用vant输入框
 import { NoticeBar } from 'vant';
 Vue.use(NoticeBar);      //引入vant通知栏
 
+import SlideVerify from 'vue-monoplasty-slide-verify';
+Vue.use(SlideVerify);   //引入滑动验证
+
 Vue.use(Field);
 Vue.config.productionTip = false
 

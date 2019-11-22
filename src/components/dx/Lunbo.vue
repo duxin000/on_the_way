@@ -20,7 +20,7 @@
                 var url = "homepage/home/";
                 this.axios.get(url).then(res => {
                     this.list = res.data;
-                    console.log(this.list);
+                    
                 }).catch(err => {
                     console.log(err);
                 })
@@ -37,9 +37,8 @@
         margin: 0 auto;
         height: 200px;
         width: 98%;
-        margin-top: 5px;
+        margin-top: 3px;
     }
-
     .lunbo img {
         width: 100%;
         height: 200px;

@@ -35,7 +35,7 @@
           this.axios.get(url, { params: obj }).then(res => {
             if (res.data.code == 1) {
               this.$toast("登录成功");
-              this.$router.push("/Personal");
+              this.$router.push("/");
             } else {
               this.$toast("用户名和密码有误");
             }
