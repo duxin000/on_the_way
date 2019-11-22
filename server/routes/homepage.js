@@ -3,8 +3,9 @@ var router=express.Router();
 var pool=require("../pool");
 //轮播路径
 router.get("/home",(req,res)=>{
-   var sql = "SELECT img FROM yxk_chart";
-   pool.query(sql,(err,result)=>{
+  var chart_id=req.query.id;
+   var sql = "SELECT img FROM yxk_chart where chart_id=? ";
+   pool.query(sql,[chart_id],(err,result)=>{
      if (err) throw err;
      res.send(result);
    })
