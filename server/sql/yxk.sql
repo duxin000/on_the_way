@@ -27,12 +27,12 @@ CREATE TABLE yxk_sort(
 CREATE TABLE yxk_pic(
   pid INT PRIMARY KEY AUTO_INCREMENT,
   pic_id INT,                 #景点编号分类
-  path  VARCHAR(128),         #图片路径
+  path  VARCHAR(128),         #详情轮播图片路径
   title VARCHAR(128),         #主标题
   subtitle VARCHAR(128),      #副标题
   place  VARCHAR(16),         #地点
-  season VARCHAR(16)       #季节
-
+  season VARCHAR(16),         #季节
+  way  VARCHAR(128)         #图片路径
 );
 
 /***收藏车***/
@@ -78,3 +78,7 @@ INSERT INTO yxk_sort VALUES
 (NULL,'长江三峡'),
 (NULL,'中央大街'),
 (NULL,'张家界');
+
+/***商品详情插入***/
+INSERT INTO yxk_pic VALUES
+
