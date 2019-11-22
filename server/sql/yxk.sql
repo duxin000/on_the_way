@@ -80,5 +80,5 @@ INSERT INTO yxk_sort VALUES
 (NULL,'张家界');
 
 /***商品详情插入***/
-INSERT INTO yxk_pic VALUES
+-- INSERT INTO yxk_pic VALUES
 

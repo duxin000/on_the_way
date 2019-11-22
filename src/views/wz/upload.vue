@@ -7,9 +7,8 @@
       <mt-button @click="close">取消</mt-button>
       <mt-button @click="publish">发布</mt-button>
     </div>
-
     <div class="applyInput">
-      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5"  id="msage"/>
+      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5"  id="message"/>
       <p>{{t}}/300</p>
     </div>
     <van-uploader
@@ -24,25 +23,46 @@
 <script>
 export default {
   data() {
-    return {
-      fileList: [],
-      t: 0,
-      desc: ""
-    };
+      return {
+        src:"",
+        fileList:[],
+        content:[],
+        msg:"",
+        time:"",
+        uid:1,
+        count:0,
+        desc:"",
+        t:0 
+    }
   },
   methods: {
+    p(s) {
+    return s < 10 ? '0' + s : s
+    },
     publish(){
-      var d = new Date,
-      hours = d.getHours(),
-      minutes = d.getMinutes();
-      var time=[hours,minutes].join(':');
-      console.log(time);
-      var $msg = document.getElementById("msage");
-      console.log($msg.value);
-      if($msg.value==""){
-        this.$toast("请输入内容")
-        this.$router.push("/index");
-      }
+      console.log(this.fileList)
+      var d = new Date();
+      var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
+      var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
+      this.time = resDate+" "+resTime;
+      var $message=document.getElementById("message");
+      this.msg_1=$message.value;
+      var url = "upload/upload";
+      console.log(this.uid)
+      console.log(this.time)
+      console.log(this.msg_1)
+      console.log(this.content.length)
+      var obj={count:this.count,uid:this.uid,time:this.time,msg:this.msg_1,content:this.content};
+      if(this.msg_1=="" && this.content.length<1){
+        this.$messagebox("提示","请传入图片或文字")
+      }else{
+        this.axios.post(url,this.qs.stringify(obj))
+        .then(res=>{
+          this.$toast("分享成功！");
+          this.$router.push("Personal")
+        })
+        .catch(err=>{throw err})
+        }
     },
     close(){
       this.$messagebox.confirm("是否取消")
@@ -59,12 +79,21 @@ export default {
     },
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
-      console.log(file);
-      console.log(file.content);
-      this.content.push(file.content);
-      this.count =this.content.length;
+        var filesize = file.file.size;
+        var filename = file.file.name;
+        console.log(filesize)
+        // 2,621,440   2M
+        if (filesize > 3101440) {
+            // 图片大于2MB
+            this.$tosast("图片过大！");
+            return
+        }
+        console.log(file)
+        
+      this.content.push(file.content);  //添加
+      this.count=this.content.length;	//
+      },
     },
-  },
   watch: {
     desc() {
       this.t = this.desc.length;
