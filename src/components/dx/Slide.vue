@@ -26,13 +26,13 @@
         },
         methods: {
             onSuccess(){
-                this.msg = '请登录'
+                this.msg = '验证成功'
             },
             onFail(){
-                this.msg = ''
+                this.msg = '验证失败'
             },
             onRefresh(){
-                this.msg = ''
+                this.msg = '请验证'
             }
         }
     }

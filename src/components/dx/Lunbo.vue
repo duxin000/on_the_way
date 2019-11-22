@@ -18,9 +18,9 @@
         methods: {
             abc() {
                 var url = "homepage/home/";
-                this.axios.get(url).then(res => {
+                var obj={id:14};
+                this.axios.get(url,{params:obj}).then(res => {
                     this.list = res.data;
-                    
                 }).catch(err => {
                     console.log(err);
                 })
