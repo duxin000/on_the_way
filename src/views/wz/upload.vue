@@ -9,7 +9,7 @@
     </div>
 
     <div class="applyInput">
-      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5"  id="msg"/>
+      <textarea placeholder="这一刻的想法..." maxlength="300" v-model="desc" rows="5"  id="msage"/>
       <p>{{t}}/300</p>
     </div>
     <van-uploader
@@ -32,30 +32,17 @@ export default {
   },
   methods: {
     publish(){
-      this.$toast("上传成功")
       var d = new Date,
       hours = d.getHours(),
       minutes = d.getMinutes();
       var time=[hours,minutes].join(':');
       console.log(time);
-      var $msg = document.getElementById("msg")
+      var $msg = document.getElementById("msage");
       console.log($msg.value);
-    },
-    uploadFile: function () {
-      var item = {
-          name: file.name,
-          uploadPercentage: 0
-      };
-      this.files.push(item);
-      var fd = new FormData();
-      fd.append('logo', file);
-      console.log(fd);
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'http://127.0.0.1:5050/users/upload', true);
-      xhr.upload.addEventListener('progress', function (e) {
-          item.uploadPercentage = Math.round((e.loaded * 100) / e.total);
-      }, false);
-      xhr.send(fd);
+      if($msg.value==""){
+        this.$toast("请输入内容")
+        this.$router.push("/index");
+      }
     },
     close(){
       this.$messagebox.confirm("是否取消")
@@ -72,9 +59,11 @@ export default {
     },
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
-      
       console.log(file);
-    }
+      console.log(file.content);
+      this.content.push(file.content);
+      this.count =this.content.length;
+    },
   },
   watch: {
     desc() {
