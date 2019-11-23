@@ -23,6 +23,9 @@ Vue.use(NoticeBar);      //引入vant通知栏
 import SlideVerify from 'vue-monoplasty-slide-verify';
 Vue.use(SlideVerify);   //引入滑动验证
 
+import { Search } from 'vant'; 
+Vue.use(Search);   //引入搜索框页面
+
 Vue.use(Field);
 Vue.config.productionTip = false
 
@@ -31,6 +34,10 @@ axios.defaults.baseURL='http://127.0.0.1:5050/'
 
 axios.defaults.withCredentials=true;
 Vue.prototype.axios=axios;
+
+import qs from 'qs'
+Vue.prototype.qs=qs
+Vue.config.productionTip = false;
 
 new Vue({
   router,
