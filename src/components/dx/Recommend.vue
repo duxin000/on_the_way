@@ -1,8 +1,8 @@
 <template>
     <div class="rec">
         <div v-for="(value,i) of lists" :key="i">
-            <router-link to="/Detail">
-                <img class="pic" src="../../../public/imgs/dx/Recommend1.jpg" alt="">
+            <router-link :to="`/Detail/${value.detail_id}`">
+                <img class="pic" :src="`http://127.0.0.1:5050/${value.way}`" alt="">
             </router-link>
                 <p class="rec-1">{{value.title}}</p>
                 <div class="rec-2">
@@ -22,9 +22,8 @@ export default {
     },
     methods: {
         abc() {
-            var url = "homepage/list/";
-            var obj={detail_id:1};
-            this.axios.get(url,{params:obj}).then(res => {
+            var url = "homepage/listMove/";
+            this.axios.get(url).then(res => {
                 this.lists = res.data;
                 console.log(this.lists);
                 console.log(1)

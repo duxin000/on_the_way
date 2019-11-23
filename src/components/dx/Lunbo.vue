@@ -18,7 +18,7 @@
         methods: {
             abc() {
                 var url = "homepage/home/";
-                var obj={id:1};
+                var obj={chart_id:14};
                 this.axios.get(url,{params:obj}).then(res => {
                     this.list = res.data;
                 }).catch(err => {

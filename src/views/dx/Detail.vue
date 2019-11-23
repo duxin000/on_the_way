@@ -8,7 +8,7 @@
         </div>
         <div class="main1" v-for="(value,i) of lists" :key="i">
             <div>
-                <Detail-lunbo></Detail-lunbo>
+                <Detail-lunbo :detail_id="detail_id"></Detail-lunbo>
             </div>
             <div>
                 <p class="rec-1">{{value.title}}</p>
@@ -76,7 +76,7 @@ export default {
     methods: {
         abc() {
             var url = "homepage/list/";
-            var obj={detail_id:1};
+            var obj={detail_id:this.detail_id};
             this.axios.get(url,{params:obj}).then(res => {
                 this.lists = res.data;
                 // console.log(this.lists);
