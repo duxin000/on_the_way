@@ -14,10 +14,19 @@
   </div>
   <div class="more_list" style="display:none" v-show="downicon" @click="change">
       <p>更多精彩图集</p >
-      <router-link to="">户外</router-link>
-      <router-link to="">休闲</router-link>
-      <router-link to="">摄影</router-link>
-      <router-link to="">外拍</router-link>
+      <router-link to="">贝加尔湖</router-link>
+      <router-link to="">布达拉宫</router-link>
+      <router-link to="">大理</router-link>
+      <router-link to="">富士山</router-link>
+      <router-link to="">故宫</router-link>
+      <router-link to="">黄山</router-link>
+      <router-link to="">九寨沟</router-link>
+      <router-link to="">丽江</router-link>
+      <router-link to="">天鹅泉</router-link>
+      <router-link to="">香格里拉</router-link>
+      <router-link to="">长江三峡</router-link>
+      <router-link to="">中央大街</router-link>
+      <router-link to="">张家界</router-link>
   </div>
 </div>
   
@@ -108,8 +117,8 @@ export default {
     display:block;
     width:49%;
     padding-left: 2px;
-    height:40px;
-    line-height: 40px;
+    height:25px;
+    line-height: 25px;
     border:1px solid #fff;
     border-radius: 8px;
     text-decoration: none;

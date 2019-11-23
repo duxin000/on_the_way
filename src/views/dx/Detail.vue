@@ -6,23 +6,23 @@
             </router-link>
             说&nbsp;走&nbsp;就&nbsp;走&nbsp;的&nbsp;旅&nbsp;行
         </div>
-        <div class="main1">
+        <div class="main1" v-for="(value,i) of lists" :key="i">
             <div>
                 <Detail-lunbo></Detail-lunbo>
             </div>
             <div>
-                <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
+                <p class="rec-1">{{value.title}}</p>
                 <div class="rec-2">
-                    <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
+                    <span>摄影游</span>&lt;丽江集合解散&gt; {{value.subtitle}}
                 </div>
             </div>
             <div class="title-1">
                 <img src="../../../public/imgs/dx/dingwei.png" alt="">
-                <span class="title-1-1">丽江</span>
-                <span class="title-1-2">最佳观赏时间：夏季</span>
+                <span class="title-1-1">{{value.place}}</span>
+                <span class="title-1-2">最佳观赏时间：{{value.season}}</span>
             </div>
             <div  class="title-2">
-                <p>早上自由逛【和顺古镇】静谧的晨曦，适时出发途径【龙江特大桥】（上午桥下有云海的几率较大），抵达【潞江坝】后，开始了真正意义上的怒江之旅，沿江北上，途径怒江自治州州府所在地【六库】，AA午餐。继续前行，精心挑选怒江上宽而惊险的一段，特别安排</p>
+                <p>{{value.details}}</p>
             </div>
             <div class="title-3">
                 <img src="../../../public/imgs/dx/dianzan.png" alt="">
@@ -64,9 +64,31 @@
 <script>
 import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
 export default {
+    props:["detail_id"],//自动获得地址栏传来的lid参数值
+    data() {
+        return {
+            lists: []
+        }
+    },
     components:{
         "Detail-lunbo":Detail_lunbo,
-    }
+    },
+    methods: {
+        abc() {
+            var url = "homepage/list/";
+            var obj={detail_id:1};
+            this.axios.get(url,{params:obj}).then(res => {
+                this.lists = res.data;
+                // console.log(this.lists);
+                // console.log(1)
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    },
+    created() {
+        this.abc();
+    },
 }
 </script>
 

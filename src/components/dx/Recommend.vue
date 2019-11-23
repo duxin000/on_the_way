@@ -1,49 +1,41 @@
 <template>
     <div class="rec">
-        <div>
+        <div v-for="(value,i) of lists" :key="i">
             <router-link to="/Detail">
                 <img class="pic" src="../../../public/imgs/dx/Recommend1.jpg" alt="">
             </router-link>
-                <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
+                <p class="rec-1">{{value.title}}</p>
                 <div class="rec-2">
-                    <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
-                </div>   
-        </div>
-        <div>
-            <img class="pic" src="../../../public/imgs/dx/Recommend5.jpg" alt="">
-            <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
-            <div class="rec-2">
-                <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
-            </div>
-        </div>
-        <div>
-            <img class="pic" src="../../../public/imgs/dx/Recommend2.jpg" alt="">
-            <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
-            <div class="rec-2">
-                <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
-            </div>
-        </div>
-        <div>
-            <img class="pic" src="../../../public/imgs/dx/Recommend3.jpg" alt="">
-            <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
-            <div class="rec-2">
-                <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
-            </div>
-        </div>
-        <div>
-            <img class="pic" src="../../../public/imgs/dx/Recommend4.jpg" alt="">
-            <p class="rec-1">[徒步雨崩]游侠客高海拔徒步TOP1 丽江-梅里雪山-雨崩村-冰湖神瀑-金沙江大拐弯-香格里拉-虎跳峡，5/7日轻装徒步之旅（免费借用登山杖、颁发纪念奖牌、全程标间独卫）</p>
-            <div class="rec-2">
-                <span>摄影游</span>&lt;丽江集合解散&gt; 梅里内转，涉足荒野，朝圣神山卡瓦格博
-            </div>
-        </div>
+                    <span>摄影游</span>&lt;丽江集合解散&gt; {{value.subtitle}}
+                </div>  
+        </div>      
     </div>
 </template>
 
 
 <script>
 export default {
-    
+    data() {
+        return {
+            lists: []
+        }
+    },
+    methods: {
+        abc() {
+            var url = "homepage/list/";
+            var obj={detail_id:1};
+            this.axios.get(url,{params:obj}).then(res => {
+                this.lists = res.data;
+                console.log(this.lists);
+                console.log(1)
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    },
+    created() {
+        this.abc();
+    },
 }
 </script>
 

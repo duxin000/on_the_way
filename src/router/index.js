@@ -30,17 +30,17 @@ import Personal from "../views/wyf/Personal.vue"  //个人主页
 import Logon from "../views/wyf/Logon.vue"       //注册
 import Slide from "../components/dx/Slide.vue"       //滑动解锁
 import Detail_lunbo from "../components/dx/Detail_lunbo.vue"       //详情轮播图
-import Seek from "../views/dx/Seek.vue"       //详情轮播图
+import Seek from "../views/dx/Seek.vue"       //搜索框
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
     {path: '/Recommend', component: Recommend},
     // {path: '/Title', component: Title},
     // {path: '/Header', component: Header},
-    {path: '/index', component: index},
+    {path: '/index1', component: index},
     {path: '/Upload', component:Upload},
     {path: '/Community_head', component:Community_head},
-    {path: '/Detail', component:Detail},  //详情头部
+    {path: '/Detail', component:Detail,},  //详情头部
     {path: '/Login', component:Login},
     {path: '/Personal', component:Personal},
     {path: '/Logon', component:Logon},

@@ -21,9 +21,10 @@
     },
     methods: {
         abc() {
-            console.log(1);
+            //console.log(1);
             var url = "homepage/home/";
-            this.axios.get(url).then(res => {
+            var obj = {id:14};
+            this.axios.get(url,{params:obj}).then(res => {
                 this.list = res.data;
                 console.log(this.list);
             }).catch(err => {

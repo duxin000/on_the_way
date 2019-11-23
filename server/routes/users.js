@@ -7,7 +7,7 @@ router.get("/login", (req, res) => {
   var upwd = req.query.upwd;
   var sql = "SELECT uid FROM yxk_login WHERE uname = ? AND upwd = md5(?)";
   pool.query(sql, [uname, upwd], (err, result) => {
-    console.log(1);
+    //console.log(1);
     if (err) throw err;
     if (result.length == 0) {
       res.send({ code: -1, msg: "用户名或密码有误" });
