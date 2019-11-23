@@ -14,7 +14,7 @@
   </div>
   <div class="more_list" style="display:none" v-show="downicon" @click="change">
       <p>热门推荐</p >
-      <router-link  v-for="(value,i) of eeee" :key="i" :to="`/Detail/${value.sid}`">{{value.sname}}</router-link>
+      <router-link  v-for="(value,i) of scenery" :key="i" :to="`/Detail/${value.sid}`">{{value.sname}}</router-link>
   </div>
 </div>
   
@@ -26,7 +26,7 @@ export default {
         return{
             downicon:false,
             lists: [],
-            eeee: []
+            scenery: []     //风景推荐
         }
     },
     methods:{
@@ -43,7 +43,7 @@ export default {
         acc() {
             var url = "homepage/class/";
             this.axios.get(url).then(res => {
-                this.eeee = res.data;
+                this.scenery = res.data;
                 //console.log(this.eeee);
                 //console.log(1)
             }).catch(err => {
