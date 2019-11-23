@@ -3,7 +3,7 @@ var router=express.Router();
 var pool=require("../pool");
 //轮播路径
 router.get("/home",(req,res)=>{
-  var chart_id=req.query.id;
+  var chart_id=req.query.chart_id;
    var sql = "SELECT img FROM yxk_chart where chart_id=? ";
    pool.query(sql,[chart_id],(err,result)=>{
      if (err) throw err;
@@ -13,7 +13,7 @@ router.get("/home",(req,res)=>{
 //详情页路径
 router.get("/list",(req,res)=>{
   var detail_id=req.query.detail_id;
-   var sql = "SELECT title,subtitle,place,season,details  FROM yxk_detail where detail_id=?";
+   var sql = "SELECT title,subtitle,place,season,details,way  FROM yxk_detail where detail_id=?";
    pool.query(sql,[detail_id],(err,result)=>{
      if (err) throw err;
      res.send(result);

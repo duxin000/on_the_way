@@ -13,6 +13,7 @@
 
 <script>
     export default {
+    props:["detail_id"],//自动获得地址栏传来的lid参数值
     data() {
         return {
             current: 0,
@@ -21,12 +22,12 @@
     },
     methods: {
         abc() {
-            //console.log(1);
+            console.log(this.detail_id);
             var url = "homepage/home/";
-            var obj = {id:14};
+            var obj = {chart_id:this.detail_id};
             this.axios.get(url,{params:obj}).then(res => {
                 this.list = res.data;
-                console.log(this.list);
+                //console.log(this.list);
             }).catch(err => {
                 console.log(err);
             })
@@ -51,11 +52,12 @@
     }
     .d1 img{
         width: 100%;
+        height: 190px;
     }
     .custom-indicator{
         position: absolute;
-        right: 0;
-        top: 150px;
+        right: 10px;
+        top: 160px;
     }
 </style>
 

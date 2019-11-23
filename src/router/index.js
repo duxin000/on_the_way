@@ -42,12 +42,12 @@ const routes = [
     {path: '/index1', component: index},
     {path: '/Upload', component:Upload},
     {path: '/Community_head', component:Community_head},
-    {path: '/Detail', component:Detail,},  //详情头部
+    {path: '/Detail/:detail_id', component:Detail,props:true},  //详情头部
     {path: '/Login', component:Login},
     {path: '/Personal', component:Personal},
     {path: '/Logon', component:Logon},
     {path: '/Slide', component:Slide},
-    {path: '/Detail_lunbo', component:Detail_lunbo},
+    {path: '/Detail_lunbo/:detail_id', component:Detail_lunbo,props:true},
     {path: '/Circle',component:Circle}, //发布内容
     {path: '/Seek', component:Seek},
 ]
