@@ -22,7 +22,7 @@
     },
     methods: {
         abc() {
-            console.log(this.detail_id);
+            //console.log(this.detail_id);
             var url = "homepage/home/";
             var obj = {chart_id:this.detail_id};
             this.axios.get(url,{params:obj}).then(res => {
