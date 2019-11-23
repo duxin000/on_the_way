@@ -13,35 +13,50 @@
     </div>
   </div>
   <div class="more_list" style="display:none" v-show="downicon" @click="change">
-      <p>更多精彩图集</p >
-      <router-link to="">贝加尔湖</router-link>
-      <router-link to="">布达拉宫</router-link>
-      <router-link to="">大理</router-link>
-      <router-link to="">富士山</router-link>
-      <router-link to="">故宫</router-link>
-      <router-link to="">黄山</router-link>
-      <router-link to="">九寨沟</router-link>
-      <router-link to="">丽江</router-link>
-      <router-link to="">天鹅泉</router-link>
-      <router-link to="">香格里拉</router-link>
-      <router-link to="">长江三峡</router-link>
-      <router-link to="">中央大街</router-link>
-      <router-link to="">张家界</router-link>
+      <p>热门推荐</p >
+      <router-link  v-for="(value,i) of scenery" :key="i" :to="`/Detail/${value.sid}`">{{value.sname}}</router-link>
   </div>
 </div>
   
 </template>
 <script>
 export default {
+   props:["detail_id"],//自动获得地址栏传来的lid参数值
     data(){
         return{
             downicon:false,
+            lists: [],
+            scenery: []     //风景推荐
         }
     },
     methods:{
+        abc() {
+            var url = "homepage/listMove/";
+            this.axios.get(url).then(res => {
+                this.lists = res.data;
+                //console.log(this.lists);
+                //console.log(1)
+            }).catch(err => {
+                console.log(err);
+            })
+        },
+        acc() {
+            var url = "homepage/class/";
+            this.axios.get(url).then(res => {
+                this.scenery = res.data;
+                //console.log(this.eeee);
+                //console.log(1)
+            }).catch(err => {
+                console.log(err);
+            })
+        },
         change(){
             this.downicon = !this.downicon;
-        }
+        },
+    },
+    created() {
+        this.abc();
+        this.acc();
     }
 }
 </script>

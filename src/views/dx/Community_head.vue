@@ -3,7 +3,7 @@
         <div class="top">
             社&nbsp;&nbsp;&nbsp;&nbsp;区
         </div>
-        <van-notice-bar class="Notifier" text="王振是个铁憨憨，王振是个铁憨憨，王振是个铁憨憨王振是个铁憨憨王振是个铁憨憨" left-icon="volume-o"/>
+        <van-notice-bar class="Notifier" text="人生至少要有两次冲动，一为奋不顾身的爱情，一为说走就走的旅行" left-icon="volume-o"/>
         <div class="body">
             <van-tabs v-model="active" animated>
                 <van-tab v-for="(item,i) of list" :key="i" :title="item ">
