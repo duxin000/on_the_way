@@ -26,8 +26,8 @@ app.use(session({
    resave:true,         //请求更新数据
    saveUninitialized:true//保存初始数据
 }));
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended:true}));
+app.use(bodyParser.json({limit: "100mb"}));
+app.use(bodyParser.urlencoded({limit: "100mb", extended:true}));
 app.use("/users",users);
 app.use("/homepage",homepage);
 app.use("/upload",upload);
