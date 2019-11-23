@@ -30,47 +30,57 @@
                 <img slot="icon" src="../../../public/imgs/dx/ziyuan.png">上传
             </mt-tab-item>
             <mt-tab-item id="tab4">
-                <img slot="icon" src="../../../public/imgs/dx/gerenzhongxin.png">个人中心
+                <img @click="click1" slot="icon" src="../../../public/imgs/dx/gerenzhongxin.png"> <span @click="click1">个人中心</span> 
             </mt-tab-item>
+
         </mt-tabbar>
     </div>
 </template>
 
 <script>
-import index from "../../views/dx/index.vue"  //头部导航
-import Recommend from "./Recommend.vue"  //推荐
-import Communityhead from '../../views/dx/Community_head.vue'  //社区
-import Personal from '../../views/wyf/Personal.vue'  //个人主页
-import upload from '../../views/wz/upload.vue'  //个人主页
-export default {
-    data() {
-        return {
-            active:"tab1"
-        }
-    },
-    methods: {
-        getA(event){
-            //功能：获取自定义属性赋值active
-            //1.在参数中添加值event
-            //2.获取自定义属性id
-            var id=event.target.dataset.id;
-            //3.将属性值赋值active    
-            this.active=id;
+    import index from "../../views/dx/index.vue"  //头部导航
+    import Recommend from "./Recommend.vue"  //推荐
+    import Communityhead from '../../views/dx/Community_head.vue'  //社区
+    import Personal from '../../views/wyf/Personal.vue'  //个人主页
+    import upload from '../../views/wz/upload.vue'  //个人主页
+    export default {
+        data() {
+            return {
+                active: "tab1"
+            }
         },
-    },
-    components:{
-        "index":index,
-        "recommend":Recommend,
-        "community-head":Communityhead,
-        "personal":Personal,
-        "upload":upload
+        methods: {
+            getA(event) {
+                //功能：获取自定义属性赋值active
+                //1.在参数中添加值event
+                //2.获取自定义属性id
+                var id = event.target.dataset.id;
+                //3.将属性值赋值active    
+                this.active = id;
+            },
+            click1() {
+                var url = "users/person/";
+                this.axios.get(url).then(res => {
+                    if (res.data.code == -1) {
+                        this.$messagebox('消息', '请先登录');
+                        this.$router.push("/Login");
+                    }
+                })
+            }
+        },
+        components: {
+            "index": index,
+            "recommend": Recommend,
+            "community-head": Communityhead,
+            "personal": Personal,
+            "upload": upload
+        }
     }
-}
 </script>
 
 
 <style scoped>
-    .footer{
-        background:#fdf4e5;
+    .footer {
+        background: #fdf4e5;
     }
 </style>

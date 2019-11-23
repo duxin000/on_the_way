@@ -35,6 +35,10 @@ axios.defaults.baseURL='http://127.0.0.1:5050/'
 axios.defaults.withCredentials=true;
 Vue.prototype.axios=axios;
 
+import qs from 'qs'
+Vue.prototype.qs=qs
+Vue.config.productionTip = false;
+
 new Vue({
   router,
   store,

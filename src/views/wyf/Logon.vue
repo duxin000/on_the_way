@@ -1,5 +1,10 @@
 <template>
   <div class="box2">
+    <p>
+      <router-link to="/Login">
+        <img src="../../../public/imgs/wyf/fh3.png" alt="">
+      </router-link>
+    </p>
     <div class="box">
       <div class="logon">
         <img style="width:70px;height:70px" src="../../../public/imgs/wyf/head.png" alt="">
@@ -43,9 +48,11 @@
           this.$messagebox('消息', '手机号格式不正确'); return;
         } else {
           var url = "users/logon/";
-          var obj=`uname=${this.username}&upwd=${this.password}&phone=${this.phone}`
-          this.axios.post(url,obj).then(res => { console.log(res);this.$toast("注册成功");
-              this.$router.push("/Login"); }).catch(err => { console.log(err) })
+          var obj = `uname=${this.username}&upwd=${this.password}&phone=${this.phone}`
+          this.axios.post(url, obj).then(res => {
+            console.log(res); this.$toast("注册成功");
+            this.$router.push("/Login");
+          }).catch(err => { console.log(err) })
         }
       }
     },
@@ -58,7 +65,7 @@
     background: #FFFFFF;
     border-radius: 3%;
     padding-bottom: 25px;
-    margin-top: 65%;
+    margin-top: 50%;
   }
 
   .box::before {

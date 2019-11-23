@@ -1,5 +1,8 @@
 <template>
   <div class="box2">
+    <p><router-link to="/">
+      <img src="../../../public/imgs/wyf/fh3.png" alt="">
+  </router-link></p>
     <div class="box">
       <div class="logon">
         <img style="width:70px;height:70px" src="../../../public/imgs/wyf/head.png" alt="">

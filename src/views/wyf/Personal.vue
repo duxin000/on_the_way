@@ -1,9 +1,9 @@
 <template>
   <div class="box">
     <div class="b-2">
-        <div class="b-1">
-            <p style="margin-top:0 ; line-height: 50px;">个 人 主 页</p>
-          </div>
+      <div class="b-1">
+        <p style="margin-top:0 ; line-height: 50px;">个 人 主 页</p>
+      </div>
       <div class="head">
         <img style="width:90px;height:90px" src="../../../public/imgs/wyf/head.png" alt="">
         <h1>{{uname}}</h1>
@@ -46,10 +46,6 @@
       pol() {
         var url = "/users/person";
         this.axios.get(url).then(res => {
-          if(res.data.code==-1){
-            this.$messagebox('消息', '请先登录');
-            this.$router.push("/Login");
-          }
           this.uname = res.data.uname;
         })
       },
@@ -77,7 +73,7 @@
   }
 
   .b-2 {
-    background-image: linear-gradient(to bottom, #37A3FD,#00D2FF);
+    background-image: linear-gradient(to bottom, #37A3FD, #00D2FF);
   }
 
   h1 {
