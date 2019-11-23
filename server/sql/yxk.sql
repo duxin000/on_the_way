@@ -66,15 +66,14 @@ INSERT INTO yxk_sort VALUES
 (NULL,'大理'),        
 (NULL,'富士山'),   
 (NULL,'故宫'),      
-(NULL,'黄山'),     
-(NULL,'九寨沟'),    
-(NULL,'丽江'),     
+(NULL,'哈尔滨'),     
+(NULL,'黄山'),    
+(NULL,'九寨沟'),     
 (NULL,'天鹅泉'),    
 (NULL,'香格里拉'),   
 (NULL,'长江三峡'),    
 (NULL,'中央大街'),    
-(NULL,'张家界'),    
-(NULL,'首页轮播');    
+(NULL,'张家界');       
 
 /***用户登录数据插入***/
 INSERT INTO yxk_login VALUES
