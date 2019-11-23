@@ -27,4 +27,12 @@ router.get("/listMove",(req,res)=>{
      res.send(result);
    })
 })
+//查询景点分类
+router.get("/class",(req,res)=>{
+   var sql = "SELECT * FROM yxk_sort";
+   pool.query(sql,(err,result)=>{
+     if (err) throw err;
+     res.send(result);
+   })
+})
 module.exports = router;
