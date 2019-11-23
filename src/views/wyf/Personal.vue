@@ -1,20 +1,18 @@
 <template>
   <div class="box">
     <div class="b-2">
-      <div class="b-1">
-        <p style="margin-top:0 ; line-height: 50px;">个 人 主 页</p>
-      </div>
+      <p class="p">个 人 主 页</p>
       <div class="head">
         <img style="width:90px;height:90px" src="../../../public/imgs/wyf/head.png" alt="">
         <h1>{{uname}}</h1>
       </div>
       <div class="jjk">
         <div>
-          <p>12</p>
-          <p>作品</p>
+          <p>12 </p>
+          <p>作品 </p>
         </div>
         <div>
-          <p>10</p>
+          <p>1w+</p>
           <p>粉丝</p>
         </div>
         <div>
@@ -64,24 +62,25 @@
     text-align: center;
   }
 
-  .b-1 {
+  .p {
+    margin-top: 0;
+    line-height: 50px;
     font-weight: bold;
-    background: #2C93ED;
     font-size: 18px;
-    height: 50px;
     color: #fff;
   }
 
   .b-2 {
-    background-image: linear-gradient(to bottom, #37A3FD, #00D2FF);
+    background-image: linear-gradient(to bottom, #4188F2, #699FF5);
   }
 
   h1 {
     margin-top: 20px;
+    color:#fff;
   }
 
   .head {
-    padding-top: 50px;
+    padding-top: 20px;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -93,6 +92,7 @@
     display: flex;
     justify-content: space-around;
     font-size: 20px;
+    color: #fff;
   }
 
   .body {
