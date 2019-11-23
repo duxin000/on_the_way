@@ -23,7 +23,7 @@ router.post("/upload",(req,res)=>{
     });
   }
   console.log(str)
-  var sql='INSERT INTO up set uid=?,pdesc=?,psrc=?,upTime=?';
+  var sql='INSERT INTO yxk_upload set pid=?,pdesc=?,psrc=?,upTime=?';
   pool.query(sql,[obj.uid,obj.msg,str,obj.time],(err,result)=>{
     //console.log(result)
     if(err) throw err;

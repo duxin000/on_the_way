@@ -14,7 +14,7 @@
     <van-uploader
       v-model="fileList"
       multiple
-      :max-count="9"
+      :max-count="1"
       :after-read="afterRead"
       :before-read="beforeRead"
     />
@@ -59,7 +59,7 @@ export default {
         this.axios.post(url,this.qs.stringify(obj))
         .then(res=>{
           this.$toast("分享成功！");
-          this.$router.push("Personal")
+          this.$router.push("upload")
         })
         .catch(err=>{throw err})
         }
