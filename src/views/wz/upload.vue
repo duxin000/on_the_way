@@ -59,7 +59,7 @@ export default {
         this.axios.post(url,this.qs.stringify(obj))
         .then(res=>{
           this.$toast("分享成功！");
-          this.$router.push("upload")
+          this.$router.push("Jump")
         })
         .catch(err=>{throw err})
         }

@@ -34,6 +34,8 @@ export default {
     }
     .imgs{
         display: block;
+        width: 100px;
+        
         margin: 0 auto;
         margin-top: 150px;
     }
