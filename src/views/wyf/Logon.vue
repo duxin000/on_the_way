@@ -47,12 +47,18 @@
         } else if (!rag.test(this.phone)) {
           this.$messagebox('消息', '手机号格式不正确'); return;
         } else {
-          var url = "users/logon/";
-          var obj = `uname=${this.username}&upwd=${this.password}&phone=${this.phone}`
-          this.axios.post(url, obj).then(res => {
-            console.log(res); this.$toast("注册成功");
-            this.$router.push("/Login");
-          }).catch(err => { console.log(err) })
+          var obc = { uname: this.username };
+          this.axios.get("users/inspect/", { params: obc }).then(res => {
+            if (res.data.code == -1) { this.$messagebox('消息', '用户名已经存在'); return; } else {
+              var url = "users/logon/";
+              var obj = `uname=${this.username}&upwd=${this.password}&phone=${this.phone}`
+              this.axios.post(url, obj).then(res => {
+                console.log(res); this.$toast("注册成功");
+                this.$router.push("/Login");
+              }).catch(err => { console.log(err) })
+            }
+          })
+
         }
       }
     },

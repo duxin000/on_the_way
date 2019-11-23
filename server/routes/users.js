@@ -49,5 +49,18 @@ router.post("/logon", (req, res) => {
     }
   })
 })
+//检测用户是否存在
+router.get("/inspect",(req,res)=>{
+  var uname=req.query.uname;
+  var sql = "SELECT uname FROM yxk_login where uname=?";
+  pool.query(sql,[uname],(err,result)=>{
+    if(err)throw err;
+    if (result.length > 0) {
+      res.send({ code: -1, msg: "用户名已存在" });
+    }else {
+			res.send({ code: 1, msg: "用户名可用" });
+		}
+  })
+})
 //用户上传/发表
 module.exports = router;
