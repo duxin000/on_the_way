@@ -32,7 +32,7 @@ import Slide from "../components/dx/Slide.vue"       //滑动解锁
 import Detail_lunbo from "../components/dx/Detail_lunbo.vue"       //详情轮播图
 import Seek from "../views/dx/Seek.vue"       //搜索框
 import Circle from "../views/wz/Circle.vue"  //发布内容
-import Seek from "../views/dx/Seek.vue"       //详情轮播图
+//import Seek from "../views/dx/Seek.vue"       //详情轮播图
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path: '/', component: Footer},
