@@ -28,16 +28,35 @@ export default {
         fileList:[],
         content:[],
         msg:"",
+        uid:"",
         time:"",
-        uid:1,
         count:0,
         desc:"",
         t:0 
     }
   },
+  created(){
+    var url = "/upload/isLogin"
+    this.axios.get(url)
+    .then(res=>{
+      console.log(res);
+      if(res.data.code==200){
+        this.uid = res.data.msg;
+        console.log("uid:"+this.uid)
+      }else{
+        this.$toast("请登录");
+      }
+    })
+  },
   methods: {
     p(s) {
     return s < 10 ? '0' + s : s
+    },
+    getUid(){
+      var url = "/users/person";
+      this.axios.get(url).then(res=>{
+        console.log(res.data);
+      })
     },
     publish(){
       console.log(this.fileList)
@@ -48,7 +67,7 @@ export default {
       var $message=document.getElementById("message");
       this.msg_1=$message.value;
       var url = "upload/upload";
-      console.log(this.uid)
+      console.log(this.uid);
       console.log(this.time)
       console.log(this.msg_1)
       console.log(this.content.length)
