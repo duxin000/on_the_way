@@ -44,6 +44,7 @@ export default {
         this.uid = res.data.msg;
         console.log("uid:"+this.uid)
       }else{
+        this.$router.push("login")
         this.$toast("请登录");
       }
     })

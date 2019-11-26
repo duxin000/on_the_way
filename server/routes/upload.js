@@ -40,8 +40,9 @@ router.get("/isLogin",(req,res)=>{
   var uid = req.session.uid;
   // 2.如果uid为空
   // 3.请登录
-  if(uid==""){
+  if(uid===""){
     res.send({code:-1,msg:"请登录"});
+    //this.$toast("请登录")
     return;
   }else{
     res.send({code:200,msg:uid});
