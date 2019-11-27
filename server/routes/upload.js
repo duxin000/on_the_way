@@ -38,9 +38,10 @@ router.post("/upload",(req,res)=>{
 router.get("/isLogin",(req,res)=>{
   // 1.获取session中的uid
   var uid = req.session.uid;
+  console.log("uid="+uid)
   // 2.如果uid为空
   // 3.请登录
-  if(uid===""){
+  if(uid===undefined){
     res.send({code:-1,msg:"请登录"});
     //this.$toast("请登录")
     return;

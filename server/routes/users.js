@@ -64,16 +64,17 @@ router.get("/inspect",(req,res)=>{
 })
 //用户内容发表
 router.get("/circle",(req,res)=>{
-  var pdesc = req.query.pdesc;
-  var psrc = req.query.psrc;
-  var uptime = req.query.upTime;
-  var sql = "SELECT * FROM yxk_upload WHERE pdesc=?,psrc=?,upTime=?"
-  pool.query(sql,[pdesc,psrc,uptime],(err,result)=>{
+  var uid = req.session.uid;
+  var sql = "SELECT * FROM yxk_upload WHERE uid=?"
+  pool.query(sql,[uid],(err,result)=>{
     if(err) throw err;
-    if(result.length<0){
-      res.send("查询失败")
+    if(result.length>0){
+      console.log(result);
+      res.send({
+        code:result
+      })
     }else{
-      res.send("查询成功")
+      res.send("查询失败")
     }
   })
 })

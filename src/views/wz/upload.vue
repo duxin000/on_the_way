@@ -36,17 +36,12 @@ export default {
     }
   },
   created(){
-    var url = "/upload/isLogin"
+    var url = "upload/isLogin"
     this.axios.get(url)
     .then(res=>{
       console.log(res);
-      if(res.data.code==200){
-        this.uid = res.data.msg;
-        console.log("uid:"+this.uid)
-      }else{
-        this.$router.push("login")
-        this.$toast("请登录");
-      }
+      this.uid = res.data.msg;
+      console.log("uid="+this.uid)
     })
   },
   methods: {

@@ -8,7 +8,7 @@
       <span>{{pdesc}}</span>
     </div>
     <div>
-      <img src="`${psrc}`" alt="">
+      <img :src="`http://127.0.0.1:5050/${psrc}`" alt="">
     </div>
     <div class="uptime">
       <span>{{upTime}}</span>
@@ -19,7 +19,10 @@
 export default {
   data(){
     return{
-      uname:""
+      uname:"",
+      pdesc:"",
+      upTime:"",
+      psrc:""
     }
   },
   methods:{
@@ -29,6 +32,18 @@ export default {
         this.uname = res.data.uname;
       })
     },
+    getMessage(){
+      var url = "/users/circle";
+      this.axios.get(url)
+      .then(res=>{
+        console.log(res);
+        this.uid=res.data.code[0].uid;
+        this.pdesc=res.data.code[0].pdesc;
+        this.psrc=res.data.code[0].psrc;
+        this.upTime=res.data.code[0].upTime;
+        this.psrc = this.psrc.slice(8);
+      })
+    }
   },
   created(){
     this.getUid(),
