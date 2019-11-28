@@ -27,7 +27,7 @@
                 <img slot="icon" src="../../../public/imgs/dx/shequ.png">社区
             </mt-tab-item>
             <mt-tab-item id="tab3">
-                <img slot="icon" src="../../../public/imgs/dx/ziyuan.png">上传
+                <img @click="upload" slot="icon" src="../../../public/imgs/dx/ziyuan.png">上传
             </mt-tab-item>
             <mt-tab-item id="tab4">
                 <img @click="click1" slot="icon" src="../../../public/imgs/dx/gerenzhongxin.png"> <span @click="click1">个人中心</span> 
@@ -58,6 +58,15 @@
                 //3.将属性值赋值active    
                 this.active = id;
             },
+            upload() {
+                var url = "users/person/";
+                this.axios.get(url).then(res => {
+                    if (res.data.code == -1) {
+                        this.$messagebox('消息', '请先登录');
+                        this.$router.push("/Login");
+                    }
+                })
+            },
             click1() {
                 var url = "users/person/";
                 this.axios.get(url).then(res => {
@@ -66,7 +75,7 @@
                        this.$router.push("/Login");
                     }
                 })
-            }
+            },
         },
         components: {
             "index": index,

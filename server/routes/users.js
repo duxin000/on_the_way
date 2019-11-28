@@ -68,5 +68,20 @@ router.get("/remove",(req,res)=>{
   var session=req.session;
   session.uid=null;
   res.send({ code: 1, msg: "删除成功" });
+//用户内容发表
+router.get("/circle",(req,res)=>{
+  var uid = req.session.uid;
+  var sql = "SELECT * FROM yxk_upload WHERE uid=?"
+  pool.query(sql,[uid],(err,result)=>{
+    if(err) throw err;
+    if(result.length>0){
+      console.log(result);
+      res.send({
+        code:result
+      })
+    }else{
+      res.send("查询失败")
+    }
+  })
 })
 module.exports = router;

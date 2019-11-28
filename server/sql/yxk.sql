@@ -52,10 +52,11 @@ CREATE TABLE yxk_collect(
 );
 /***上传***/
 CREATE TABLE yxk_upload(
-  pid INT(255),
-  pdesc VARCHAR(512),         #发表文字
-  psrc  VARCHAR(1024),    #图片路径
-  upTime VARCHAR(128) #
+  pid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT(255),           #当前用户
+  pdesc VARCHAR(512),     #发表文字
+  psrc  VARCHAR(2048),    #图片路径
+  upTime VARCHAR(128)    #发表时间
 );
 /*---------------------------*/
 /***景点分类插入***/

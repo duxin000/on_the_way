@@ -78,7 +78,7 @@ export default {
             var obj={detail_id:this.detail_id};
             this.axios.get(url,{params:obj}).then(res => {
                 this.lists = res.data;
-                // console.log(this.lists);
+                console.log(this.lists);
                 // console.log(1)
             }).catch(err => {
                 console.log(err);
