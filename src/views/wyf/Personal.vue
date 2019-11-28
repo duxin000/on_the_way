@@ -29,6 +29,7 @@
         </van-tab>
       </van-tabs>
     </div>
+    <van-button @click="bon" class="b-3" plain type="info" size="large">退出登录</van-button>
   </div>
 </template>
 <script>
@@ -47,6 +48,16 @@
           this.uname = res.data.uname;
         })
       },
+      bon(){
+        var url="/users/remove";
+        this.axios.get(url).then(res=>{
+            if(res.data.code){
+              this.uname="未登录";
+            }
+        }).catch(err=>{
+          console.log(err);
+        })
+       }
     },
     created() {
       this.pol();
@@ -72,6 +83,9 @@
 
   .b-2 {
     background-image: linear-gradient(to bottom, #4188F2, #699FF5);
+  }
+  .b-3{
+     margin-top: 76%;
   }
 
   h1 {
