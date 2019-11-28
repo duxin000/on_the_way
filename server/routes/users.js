@@ -70,9 +70,7 @@ router.get("/circle",(req,res)=>{
     if(err) throw err;
     if(result.length>0){
       console.log(result);
-      res.send({
-        code:result
-      })
+      res.send({ code:result})
     }else{
       res.send("查询失败")
     }
