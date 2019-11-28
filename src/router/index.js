@@ -57,6 +57,10 @@ const routes = [
     {path: '/Jump', component:Jump},    //发布跳转
     {path: '/List', component:List},    //首页新增推荐
 ]
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 const router = new VueRouter({
   routes
 })

@@ -36,7 +36,7 @@ router.get("/person", (req, res) => {
 //用户注册
 router.post("/logon", (req, res) => {
   var uname = req.body.uname;
-  var upwd=req.body.upwd;
+  var upwd=req.body.upwd;                  
   var phone=req.body.phone;
   var sql = "insert into yxk_login set uname=?,upwd = md5(?),phone=?";
   pool.query(sql, [uname,upwd,phone], (err, result) => {
@@ -62,6 +62,12 @@ router.get("/inspect",(req,res)=>{
 		}
   })
 })
+//用户退出登录
+router.get("/remove",(req,res)=>{
+  
+  var session=req.session;
+  session.uid=null;
+  res.send({ code: 1, msg: "删除成功" });
 //用户内容发表
 router.get("/circle",(req,res)=>{
   var uid = req.session.uid;

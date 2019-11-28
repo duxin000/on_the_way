@@ -72,7 +72,7 @@
                 this.axios.get(url).then(res => {
                     if (res.data.code == -1) {
                         this.$messagebox('消息', '请先登录');
-                        this.$router.push("/Login");
+                       this.$router.push("/Login");
                     }
                 })
             },
