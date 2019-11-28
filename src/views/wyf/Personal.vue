@@ -28,6 +28,7 @@
         <van-tab title="我的足迹"><cir-cle></cir-cle></van-tab>
       </van-tabs>
     </div>
+    <van-button @click="bon" class="b-3" plain type="info" size="large">退出登录</van-button>
   </div>
 </template>
 
@@ -74,9 +75,12 @@ export default {
   color: #fff;
 }
 
-.b-2 {
-  background-image: linear-gradient(to bottom, #4188f2, #699ff5);
-}
+  .b-2 {
+    background-image: linear-gradient(to bottom, #4188F2, #699FF5);
+  }
+  .b-3{
+     margin-top: 76%;
+  }
 
 h1 {
   margin-top: 20px;

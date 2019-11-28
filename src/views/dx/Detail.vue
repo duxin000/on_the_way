@@ -60,7 +60,6 @@
     </div>
 </template>
 
-
 <script>
 import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
 export default {
