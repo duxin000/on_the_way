@@ -1,17 +1,19 @@
 <template>
   <div class="container">
     <!-- 发布内容 -->
-    <div class="getuname">
-      {{uname}}
-    </div>
-    <div class="getpdesc">
-      <span>{{pdesc}}</span>
-    </div>
-    <div>
-      <img :src="`http://127.0.0.1:5050/${psrc}`" alt="">
-    </div>
-    <div class="uptime">
-      <span>{{upTime}}</span>
+    <div v-for="(item,i) of lists" :key="i">
+      <div class="getuname">
+     
+      </div>
+      <div class="getpdesc">
+        <span>{{item.pdesc}}</span>
+      </div>
+      <div class="img">
+        <img :src="`http://127.0.0.1:5050${item.psrc.slice(8)}`" class="show_img">
+      </div>
+      <div class="uptime">
+        <span>{{item.upTime}}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -20,9 +22,10 @@ export default {
   data(){
     return{
       uname:"",
-      pdesc:"",
+      // pdesc:"",
       upTime:"",
-      psrc:""
+      psrc:"",
+      lists:[],
     }
   },
   methods:{
@@ -39,9 +42,15 @@ export default {
         console.log(res);
         this.uid=res.data.code[0].uid;
         this.pdesc=res.data.code[0].pdesc;
-        this.psrc=res.data.code[0].psrc;
+        this.psrc=res.data.code[0].psrc.slice(8);
+        console.log(this.psrc);
         this.upTime=res.data.code[0].upTime;
-        this.psrc = this.psrc.slice(8);
+        // this.psrc = this.psrc;
+        // console.log(this.psrc);
+        this.lists = res.data.code;
+        console.log(this.lists);
+        console.log(this.lists.pdesc);
+        
       })
     }
   },
@@ -58,6 +67,15 @@ export default {
     margin-left:10px;
     font-weight: bold;
     color:blue;
+  }
+  .img{
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+  .show_img{
+    width: 200px;
+    height: 200px;
+    border:1px solid black;
   }
   .getpdesc{
     font-size: 20px;
