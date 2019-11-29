@@ -64,7 +64,6 @@ router.get("/inspect",(req,res)=>{
 })
 //用户退出登录
 router.get("/remove",(req,res)=>{
-  
   var session=req.session;
   session.uid=null;
   res.send({ code: 1, msg: "删除成功" });
