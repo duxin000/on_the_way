@@ -1,22 +1,17 @@
 <template>
   <div class="container">
+    <!-- title -->
+    <div class="title_span">社 区</div>
     <!-- 发布内容 -->
     <div v-for="(item,i) of lists" :key="i">
-      <div class="getuname">
-        {{uname}}
-      </div>
-      <div class="getpdesc">
-        <span>{{item.pdesc}}</span>
-      </div>
+      <p class="getuname">{{item.uname}}</p>
+      <p class="getpdesc">{{item.pdesc}}</p>
       <div class="img">
         <img :src="`http://127.0.0.1:5050${item.psrc.slice(8)}`" class="show_img">
       </div>
-      <div class="uptime">
-        <span>{{item.upTime}}</span>
-      </div>
+      <p class="gettime">{{item.upTime}}</p>
       <hr>
     </div>
-    
   </div>
 </template>
 <script>
@@ -28,6 +23,7 @@ export default {
       upTime:"",
       psrc:"",
       lists:[],
+      uid:0,
     }
   },
   methods:{
@@ -35,14 +31,16 @@ export default {
       var url = "/users/person";
       this.axios.get(url).then(res=>{
         this.uname = res.data.uname;
+        console.log(this.uname);
       })
     },
     getMessage(){
-      var url = "/users/circle";
+      var url = "/users/circles";
       this.axios.get(url)
       .then(res=>{
-        console.log(res);
+        console.log(res);                  
         this.uid=res.data.code[0].uid;
+        this.uname = res.data.code[0].uname;
         this.pdesc=res.data.code[0].pdesc;
         this.psrc=res.data.code[0].psrc.slice(8);
         console.log(this.psrc);
@@ -52,38 +50,40 @@ export default {
         this.lists = res.data.code;
         console.log(this.lists);
         console.log(this.lists.pdesc);
-        
       })
-    }
+    },
+    
   },
   created(){
     this.getUid(),
     this.getMessage()
-  }
+  },
 }
 </script>
 <style scoped>
-  .getuname{
-    font-size: 30px;
-    font-family: "heiti";
-    margin-left:15px;
+  .title_span{
+    height: 50px;
+    background: #2971D5;
+    line-height: 50px;
+    font-size: 18px;
     font-weight: bold;
-    color:blue;
+    text-align: center;
+    color:#fff;
   }
-  .img{
+  .getuname{
+    font-size: 20px;
+    color: blue;
     margin-left: 15px;
-    margin-top: 15px;
-    margin-bottom: 10px;
   }
   .show_img{
     width: 200px;
     height: 200px;
+    margin-left: 15px;
   }
   .getpdesc{
     margin-left: 15px;
-    margin-top: 8px;
   }
-  .uptime{
-    margin-left: 15px;
+  .gettime{
+     margin-left: 15px;
   }
 </style>

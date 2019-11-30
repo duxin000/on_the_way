@@ -36,9 +36,11 @@ import Seek from "../views/dx/Seek.vue"       //搜索框
 import Circle from "../views/wz/Circle.vue"  //发布内容
 import Jump from "../views/wz/Jump.vue"  //发布跳转
 import List from "../components/dx/List.vue"  //首页新增推荐
+import Circles from '../views/wz/Circles.vue'  //所有上传内容
 //import Seek from "../views/dx/Seek.vue"       //详情轮播图
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
+    {path: '/Circles',component:Circles}, //所有上传内容
     {path: '/', component: Footer},
     {path: '/Recommend', component: Recommend},
     // {path: '/Title', component: Title},

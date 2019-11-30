@@ -21,7 +21,7 @@ router.get("/login", (req, res) => {
 })
 //用户主页
 router.get("/person", (req, res) => {
-  var uid = req.session.uid;
+  var uid   = req.session.uid;
   if (!uid) {
     //4:返回错误消息 请登录
     res.send({ code: -1, msg: "请登录" });
@@ -68,11 +68,25 @@ router.get("/remove",(req,res)=>{
   session.uid=null;
   res.send({ code: 1, msg: "删除成功" });
 })
-//用户内容发表
+//单用户内容发表
 router.get("/circle",(req,res)=>{
   var uid = req.session.uid;
   var sql = "SELECT * FROM yxk_upload WHERE uid=?"
   pool.query(sql,[uid],(err,result)=>{
+    if(err) throw err;
+    if(result.length>0){
+      console.log(result);
+      res.send({ code:result})
+    }else{
+      res.send("查询失败")
+    }
+  })
+})
+//多用户内容发表
+router.get("/circles",(req,res)=>{
+  
+  var sql = "SELECT * FROM yxk_upload LEFT JOIN yxk_login ON yxk_upload.uid=yxk_login.uid "
+  pool.query(sql,(err,result)=>{
     if(err) throw err;
     if(result.length>0){
       console.log(result);
