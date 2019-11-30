@@ -14,7 +14,7 @@
     <van-uploader
       v-model="fileList"
       multiple
-      :max-count="1"
+      :max-count="2"
       :after-read="afterRead"
       :before-read="beforeRead"
     />
@@ -32,7 +32,8 @@ export default {
         time:"",
         count:0,
         desc:"",
-        t:0 
+        t:0 ,
+        uname:""
     }
   },
   created(){
@@ -41,6 +42,7 @@ export default {
     .then(res=>{
       console.log(res);
       this.uid = res.data.msg;
+      
       console.log("uid="+this.uid)
     })
   },
@@ -67,6 +69,7 @@ export default {
       console.log(this.time)
       console.log(this.msg_1)
       console.log(this.content.length)
+      console.log(this.uname)
       var obj={count:this.count,uid:this.uid,time:this.time,msg:this.msg_1,content:this.content};
       if(this.msg_1=="" && this.content.length<1){
         this.$messagebox("提示","请传入图片或文字")

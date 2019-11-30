@@ -1,13 +1,16 @@
 <template>
   <div class="container">
+    <!-- title -->
+    <div class="title_span">社 区</div>
     <!-- 发布内容 -->
     <div v-for="(item,i) of lists" :key="i">
       <p class="getuname">{{item.uname}}</p>
       <p class="getpdesc">{{item.pdesc}}</p>
       <div class="img">
-        <img src="" class="show_img">
+        <img :src="`http://127.0.0.1:5050${item.psrc.slice(8)}`" class="show_img">
       </div>
       <p class="gettime">{{item.upTime}}</p>
+      <hr>
     </div>
   </div>
 </template>
@@ -20,6 +23,7 @@ export default {
       upTime:"",
       psrc:"",
       lists:[],
+      uid:0,
     }
   },
   methods:{
@@ -36,7 +40,7 @@ export default {
       .then(res=>{
         console.log(res);                  
         this.uid=res.data.code[0].uid;
-        console.log("uid:"+uid);
+        this.uname = res.data.code[0].uname;
         this.pdesc=res.data.code[0].pdesc;
         this.psrc=res.data.code[0].psrc.slice(8);
         console.log(this.psrc);
@@ -48,6 +52,7 @@ export default {
         console.log(this.lists.pdesc);
       })
     },
+    
   },
   created(){
     this.getUid(),
@@ -55,3 +60,30 @@ export default {
   },
 }
 </script>
+<style scoped>
+  .title_span{
+    height: 50px;
+    background: #2971D5;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color:#fff;
+  }
+  .getuname{
+    font-size: 20px;
+    color: blue;
+    margin-left: 15px;
+  }
+  .show_img{
+    width: 200px;
+    height: 200px;
+    margin-left: 15px;
+  }
+  .getpdesc{
+    margin-left: 15px;
+  }
+  .gettime{
+     margin-left: 15px;
+  }
+</style>

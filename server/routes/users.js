@@ -85,7 +85,7 @@ router.get("/circle",(req,res)=>{
 //多用户内容发表
 router.get("/circles",(req,res)=>{
   
-  var sql = "SELECT * FROM yxk_upload "
+  var sql = "SELECT * FROM yxk_upload LEFT JOIN yxk_login ON yxk_upload.uid=yxk_login.uid "
   pool.query(sql,(err,result)=>{
     if(err) throw err;
     if(result.length>0){

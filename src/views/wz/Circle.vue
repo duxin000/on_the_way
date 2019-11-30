@@ -14,7 +14,9 @@
       <div class="uptime">
         <span>{{item.upTime}}</span>
       </div>
+      <hr>
     </div>
+    
   </div>
 </template>
 <script>
@@ -64,25 +66,24 @@ export default {
   .getuname{
     font-size: 30px;
     font-family: "heiti";
-    margin-left:10px;
+    margin-left:15px;
     font-weight: bold;
     color:blue;
   }
   .img{
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 15px;
+    margin-bottom: 10px;
   }
   .show_img{
     width: 200px;
     height: 200px;
-    border:1px solid black;
   }
   .getpdesc{
-    font-size: 20px;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-top: 8px;
   }
   .uptime{
-    margin-left: 75%;
+    margin-left: 15px;
   }
 </style>
