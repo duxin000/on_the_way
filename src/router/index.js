@@ -15,6 +15,7 @@ import VueRouter from 'vue-router'
 //http://127.0.0.1:8080/#/Seek
 //http://127.0.0.1:8080/#/Jump
 //http://127.0.0.1:8080/#/List
+//http://127.0.0.1:8080/#/Lunbo_detail
 Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
@@ -37,6 +38,7 @@ import Circle from "../views/wz/Circle.vue"  //发布内容
 import Jump from "../views/wz/Jump.vue"  //发布跳转
 import List from "../components/dx/List.vue"  //首页新增推荐
 import Circles from '../views/wz/Circles.vue'  //所有上传内容
+import Lunbo_detail from '../views/dx/Lunbo_detail.vue'  //首页轮播详情
 //import Seek from "../views/dx/Seek.vue"       //详情轮播图
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
@@ -58,6 +60,7 @@ const routes = [
     {path: '/Seek', component:Seek},
     {path: '/Jump', component:Jump},    //发布跳转
     {path: '/List', component:List},    //首页新增推荐
+    {path: '/Lunbo_detail', component:Lunbo_detail},    //首页轮播详情
 ]
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
