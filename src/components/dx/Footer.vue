@@ -13,6 +13,9 @@
                 <upload></upload>
             </mt-tab-container-item>
             <mt-tab-container-item id="tab4">
+                <circles-show></circles-show> 
+            </mt-tab-container-item>
+            <mt-tab-container-item id="tab5">
                 <personal></personal>
             </mt-tab-container-item>
         </mt-tab-container>
@@ -24,12 +27,15 @@
                 <img slot="icon" src="../../../public/imgs/dx/shouye.png">首页
             </mt-tab-item>
             <mt-tab-item id="tab2">
-                <img slot="icon" src="../../../public/imgs/dx/shequ.png">社区
+                <img slot="icon" src="../../../public/imgs/dx/tuijian.png">推荐
             </mt-tab-item>
             <mt-tab-item id="tab3">
                 <img @click="upload" slot="icon" src="../../../public/imgs/dx/ziyuan.png">上传
             </mt-tab-item>
             <mt-tab-item id="tab4">
+                <img @click="upload" slot="icon" src="../../../public/imgs/dx/shequ.png">社区
+            </mt-tab-item>
+            <mt-tab-item id="tab5">
                 <img @click="click1" slot="icon" src="../../../public/imgs/dx/gerenzhongxin.png"> <span @click="click1">个人中心</span> 
             </mt-tab-item>
 
@@ -39,10 +45,11 @@
 
 <script>
     import index from "../../views/dx/index.vue"  //头部导航
-    import Recommend from "./Recommend.vue"  //推荐
-    import Communityhead from '../../views/dx/Community_head.vue'  //社区
+    import Recommend from "./Recommend.vue"  //首页
+    import Communityhead from '../../views/dx/Community_head.vue'  //推荐
     import Personal from '../../views/wyf/Personal.vue'  //个人主页
-    import upload from '../../views/wz/upload.vue'  //个人主页
+    import upload from '../../views/wz/upload.vue'  //上传
+    import Circles from '../../views/wz/Circles.vue'//社区
     export default {
         data() {
             return {
@@ -82,7 +89,8 @@
             "recommend": Recommend,
             "community-head": Communityhead,
             "personal": Personal,
-            "upload": upload
+            "upload": upload,
+            "circles-show":Circles
         }
     }
 </script>

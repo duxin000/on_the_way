@@ -11,7 +11,7 @@
         <p class="thick">用户注册</p>
       </div>
       <van-cell-group>
-        <van-field v-model="username" required clearable label="用户名" right-icon="question-o" placeholder="请输入用户名" @click-right-icon="$toast('这是注册页面这里该写什么你懂的')"
+        <van-field v-model="username" required clearable label="用户名" right-icon="question-o" placeholder="请输入用户名" @click-right-icon="$toast('用户名4-10，且以字母开头')"
         />
         <van-field v-model="password" type="password" label="密码" placeholder="包含 数字和英文，长度6-20" required />
         <van-field v-model="passwords" type="password" label="重复密码" placeholder="确认登录密码" required />
@@ -35,7 +35,7 @@
     },
     methods: {
       logon() {
-        var reg = /^\w{3,12}$/;  //用户名验证
+        var reg = /^[a-zA-Z]\w{3,10}$/; //用户名验证
         var cpd = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;     //密码验证
         var rag = /^[1][3,4,5,7,8][0-9]{9}$/  //手机验证
         if (!reg.test(this.username)) {

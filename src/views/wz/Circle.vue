@@ -9,7 +9,9 @@
         </div>
         <span class="uptime">{{item.upTime}}</span>
       </div>
+      <hr>
     </div>
+    
   </div>
 </template>
 <script>

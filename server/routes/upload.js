@@ -41,7 +41,7 @@ router.get("/isLogin",(req,res)=>{
   console.log("uid="+uid)
   // 2.如果uid为空
   // 3.请登录
-  if(uid===undefined){
+  if(uid==undefined){
     res.send({code:-1,msg:"请登录"});
     //this.$toast("请登录")
     return;
@@ -51,4 +51,46 @@ router.get("/isLogin",(req,res)=>{
   }
 })
 
+// 发表评论
+router.post("/comment",(req,res)=>{
+  var uid = req.session.uid;
+  console.log(req);
+  var did = req.body.did;
+  console.log(did);
+  var uname = req.body.uname;
+  console.log(uname);
+  var pdesc = req.body.pdesc;
+  console.log(pdesc);
+  var time = req.body.time;
+  console.log(time);
+  var sql = "insert into yxk_comment set uid=?,did=?,pdesc=?,time=?,uname=?";
+  pool.query(sql,[uid,did,pdesc,time,uname],(err,result)=>{
+    if(err) throw err;
+    console.log(result);
+    if(result.affectedRows > 0){
+      res.send({code:1,msg:"发表成功"})
+    }else{
+      res.send({
+        code:-1,msg:"发表失败"
+      });
+    }
+  })
+})
+
+//显示评论
+router.get("/commentxt",(req,res)=>{
+  console.log(req);
+  var did = req.query.did;
+  var sql = "SELECT * FROM yxk_comment where did=?"
+  // var sql = "SELECT * FROM yxk_comment WHERE did=? LEFT JOIN yxk_login ON yxk_comment.uid=yxk_login.uid"
+  pool.query(sql,[did],(err,result)=>{
+    if(err) throw err;
+    if(result.length>0){
+      // console.log(result);
+      res.send({ code:1,msg:result})
+    }else{
+      res.send({ code:-1,msg:"失败"})
+    }
+  })
+})
 module.exports=router;

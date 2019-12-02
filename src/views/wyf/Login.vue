@@ -19,18 +19,22 @@
         <router-link to="/Logon">立即注册</router-link>
       </p>
     </div>
+    <div v-if="isShow" class="v_code">
+      <slide></slide>
+    </div>
   </div>
 </template>
 <script>
-  import sliDe from "../../components/dx/Slide.vue"
+  import slide from "../../components/dx/Slide.vue"
   export default {
     components: {
-      sliDe
+      slide : slide
     },
     data() {
       return {
         uname: "",
-        upwd: ""
+        upwd: "",
+        isShow:false,
       }
     },
     methods: {
@@ -45,7 +49,7 @@
           var obj = { uname: this.uname, upwd: this.upwd };
           this.axios.get(url, { params: obj }).then(res => {
             if (res.data.code == 1) {
-              this.$router.push("/Slide");
+              this.isShow = true;
             } else {
               this.$toast("用户名和密码有误");
             }
@@ -58,6 +62,13 @@
   }
 </script>
 <style scoped>
+  /* 验证码样式 */
+  .v_code{
+    z-index: 1;
+    position: absolute;
+    top:302px;
+    left: 52px;
+  }
   .post {
     text-align: center;
     width: 70%;
