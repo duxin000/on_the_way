@@ -121,9 +121,71 @@
                     </div>
                     <span class="top8-8-2">真正的最北的村庄,是远离城市喧嚣的净土</span>
                 </div>
+                <div class="top8-9">
+                    <img src="../../../public/imgs/dx/detail/20.jpg" alt="">
+                </div>
+                <div class="top8-10">
+                    <div class="top8-10-1">
+                        <img src="../../../public/imgs/dx/detail/shang.png" alt="">
+                        <span>
+                            北极村
+                        </span>
+                    </div>
+                    <span class="top8-10-2">中国观测北极光最佳地点,“中国北极点”。</span>
+                </div>
+                <div class="top8-7">
+                    <img src="../../../public/imgs/dx/detail/21.jpg" alt="">
+                    <img src="../../../public/imgs/dx/detail/22.jpg" alt="">
+                </div>
+                <div class="top8-8">
+                    <div class="top8-8-1">
+                        <img src="../../../public/imgs/dx/detail/shang.png" alt="">
+                        <span>
+                            最北邮局
+                        </span>
+                    </div>
+                    <span class="top8-8-2">来到圣诞屋和圣诞老人来个亲密接触。</span>
+                </div>
+                <div class="top8-9">
+                    <img src="../../../public/imgs/dx/detail/23.jpg" alt="">
+                </div>
+                <div class="top8-10">
+                    <div class="top8-10-1">
+                        <img src="../../../public/imgs/dx/detail/shang.png" alt="">
+                        <span>
+                            最北哨所
+                        </span>
+                    </div>
+                    <span class="top8-10-2">哨所的建筑比较有特色,眺望塔很高,非常有气势</span>
+                </div>
+                <div class="top8-7">
+                    <img src="../../../public/imgs/dx/detail/24.jpg" alt="">
+                    <img src="../../../public/imgs/dx/detail/25.jpg" alt="">
+                </div>
+                <div class="top8-8">
+                    <div class="top8-8-1">
+                        <img src="../../../public/imgs/dx/detail/shang.png" alt="">
+                        <span>
+                            圣诞村
+                        </span>
+                    </div>
+                    <span class="top8-8-2">滑雪2小时,一起去体验圣诞村那不夜的童话世界</span>
+                </div>
+                <div class="top8-7">
+                    <img src="../../../public/imgs/dx/detail/26.jpg" alt="">
+                    <img src="../../../public/imgs/dx/detail/27.jpg" alt="">
+                </div>
+                <div class="top8-8">
+                    <div class="top8-8-1">
+                        <img src="../../../public/imgs/dx/detail/shang.png" alt="">
+                        <span>
+                            松苑公园
+                        </span>
+                    </div>
+                    <span class="top8-8-2">被当地人称为福地,来漠河旅游的人必去的地方</span>
+                </div>
             </div>
-        </div>
-        
+        </div>  
     </div>
     
 </template>
@@ -512,6 +574,38 @@ export default {
         font-size: 18px;
     }
     .top8-8-2{
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .top8-9{
+        margin-top: 5px;
+    }
+    .top8-9 img{
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+    }
+
+
+    .top8-10{
+        margin-top: 5px;  
+    }
+    .top8-10 img{
+        width: 30px;
+        height: 30px;
+        margin-bottom: -9px;  
+    }
+    .top8-10-1{
+        width: 180px;
+        padding: 5px 10px 10px 20px;
+        border-radius: 10px;
+        background: #ddd;
+    }
+    .top8-10-1 span{
+        font-size: 18px;
+    }
+    .top8-10-2{
         margin-left: 10px;
         font-size: 20px;
     }

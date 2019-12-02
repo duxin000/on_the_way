@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="top">
-            社&nbsp;&nbsp;&nbsp;&nbsp;区
+            推&nbsp;&nbsp;&nbsp;&nbsp;荐
         </div>
         <van-notice-bar class="Notifier" text="人生至少要有两次冲动，一为奋不顾身的爱情，一为说走就走的旅行" left-icon="volume-o"/>
         <div class="body">
@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             active: 0,
-            list: ["户外", "休闲","摄影", "外拍"],
+            list: ["户外", "休闲"],
         }
     },
 }
