@@ -14,7 +14,6 @@
       <div class="uptime">
         <span>{{item.upTime}}</span>
       </div>
-      <hr>
     </div>
     
   </div>

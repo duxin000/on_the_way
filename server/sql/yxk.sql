@@ -58,6 +58,15 @@ CREATE TABLE yxk_upload(
   psrc  VARCHAR(2048),    #图片路径
   upTime VARCHAR(128)    #发表时间
 );
+/***评论***/
+CREATE TABLE yxk_comment(
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT(255),
+  did int(255),
+  pdesc VARCHAR(521),
+  time VARCHAR(521),
+  uname VARCHAR(521),
+)
 /*---------------------------*/
 /***景点分类插入***/
 INSERT INTO yxk_sort VALUES
