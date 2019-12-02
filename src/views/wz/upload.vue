@@ -101,14 +101,15 @@ export default {
         var filename = file.file.name;
         console.log(filesize)
         // 2,621,440   2M
-        if (filesize > 3101440) {
+        if (filesize > 3101440){
             // 图片大于2MB
             this.$tosast("图片过大！");
             return
         }
         console.log(file)
         
-      this.content.push(file.content);  //添加
+      this.content.push(file.content); 
+      console.log(this.content)//添加
       this.count=this.content.length;	//
       },
     },

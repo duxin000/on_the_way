@@ -33,15 +33,25 @@
                 <img src="../../../public/imgs/dx/detail2.jpg" alt="">
                 <img src="../../../public/imgs/dx/detail3.jpg" alt="">
             </div>
+            
             <div class="title-3">
                 <img src="../../../public/imgs/dx/comment.png" alt="">
                 评论：网友评价
             </div>
+            <!-- 发布评论的地方 -->
+            <div v-for="(item,i) of items" :key="i">
+                <div class="comment">
+                  <p class="c_name">{{item.uname}}</p>
+                  <p class="c_time">{{item.time}}</p> 
+                </div>
+                <p class="c_txt">{{item.pdesc}}</p>
+            </div>
             <div class="title-5">
-                <textarea placeholder="请输入要评论的内容"></textarea>
+                <textarea placeholder="请留下你的想法..." maxlength="150" v-model="pdesc" rows="5">
+                </textarea>
             </div>
             <div class="title-6">
-                <button>发布评论</button>
+                <button @click="comment">发布评论</button>
             </div>
             <div class="title-7">
                 <div class="tit-left">
@@ -50,10 +60,16 @@
                     </router-link>
                 </div>
                 <div class="tit-canter">
-                    <button>加入收藏<img src="../../../public/imgs/dx/shoucang.png" alt=""></button>
+                    <button>
+                      加入收藏
+                      <img src="../../../public/imgs/dx/shoucang.png" alt="">
+                    </button>
                 </div>
                 <div class="tit-right">
-                    <button>点赞<img src="../../../public/imgs/dx/dianzan2.png" alt=""></button>
+                    <button>
+                      点赞
+                      <img src="../../../public/imgs/dx/dianzan2.png" alt="">
+                    </button>
                 </div>
             </div>
         </div>
@@ -66,13 +82,20 @@ export default {
     props:["detail_id"],//自动获得地址栏传来的lid参数值
     data() {
         return {
-            lists: []
+            lists: [],
+            pdesc:"",
+            uname:'',
+            time:"",
+            items:[],
         }
     },
     components:{
         "Detail-lunbo":Detail_lunbo,
     },
     methods: {
+        p(s) {
+          return s < 10 ? '0' + s : s
+        },
         abc() {
             var url = "homepage/list/";
             var obj={detail_id:this.detail_id};
@@ -83,16 +106,91 @@ export default {
             }).catch(err => {
                 console.log(err);
             })
-        }
+        },
+        getUname(){
+          var url = "/users/person";
+          this.axios.get(url).then(res=>{
+          this.uname = res.data.uname;
+          console.log(this.uname);
+          })
+        },
+        comment(){
+          var url = "upload/isLogin"
+          this.axios.get(url)
+          .then(res=>{
+          console.log(res);
+          this.code = res.data.code;
+          console.log("code="+this.code)
+          if(this.code == -1){
+              this.$messagebox.consfirm("请登录")
+          }else{
+              var url = "upload/comment";
+              var d = new Date();
+              var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
+              var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
+              this.time = resDate+" "+resTime;
+              var obj={
+                pdesc : this.pdesc,
+                did : this.detail_id,
+                uname : this.uname,
+                time : this.time
+              };
+              console.log(obj)
+              this.axios.post(url,this.qs.stringify(obj)).then(res=>{
+              // console.log("成功");
+              this.pdesc = "";
+              this.$toast("发表成功")
+              location.reload();
+              })
+            }
+          })
+        },
+        getTxt(){
+          var url = "upload/commentxt";
+          var objdid={
+              did:this.detail_id
+          };
+          // console.log(objdid)
+          this.axios.get(url,{params:objdid})
+          .then(res=>{
+            console.log(res.data.msg);
+            this.items = res.data.msg;
+          })
+        },
+        
     },
     created() {
-        this.abc();
+      this.abc();
+      this.getTxt();
+      this.getUname()
     },
 }
 </script>
 
 
 <style scoped>
+.comment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .c_name{
+    margin-left: 15px;
+    color: blue;
+    font-weight: bold;
+    font-size: 23px;
+  }
+  .c_time{
+    margin-right: 15px;
+  }
+  .c_txt{
+    padding-left: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed gray;
+    color:gray;
+    font-size: 23px;
+    margin: 0;
+  }
     .header{
         position: relative;
     }

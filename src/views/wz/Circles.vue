@@ -2,6 +2,9 @@
   <div class="container">
     <!-- title -->
     <div class="title_span">社 区</div>
+    <div>
+      <broadcast></broadcast>
+    </div>
     <!-- 发布内容 -->
     <div v-for="(item,i) of lists" :key="i">
       <p class="getuname">{{item.uname}}</p>
@@ -15,7 +18,11 @@
   </div>
 </template>
 <script>
+import Broadcast from "../../components/wz/Broadcast"
 export default {
+  components:{
+    "broadcast":Broadcast
+  },
   data(){
     return{
       uname:"",
@@ -23,7 +30,7 @@ export default {
       upTime:"",
       psrc:"",
       lists:[],
-      uid:0,
+      uid:"",
     }
   },
   methods:{

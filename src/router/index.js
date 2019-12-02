@@ -38,8 +38,14 @@ import Jump from "../views/wz/Jump.vue"  //发布跳转
 import List from "../components/dx/List.vue"  //首页新增推荐
 import Circles from '../views/wz/Circles.vue'  //所有上传内容
 //import Seek from "../views/dx/Seek.vue"       //详情轮播图
+import Comment from '../components/wz/Comment.vue'  //评论组件
+import CommentText from '../components/wz/CommentText.vue' //评论显示组件
+import Broadcast from '../components/wz/Broadcast.vue' //广播组件
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
+    {path:'/Broadcast',component:Broadcast},
+    {path:'/CommentText',component:CommentText},
+    {path:'/Comment',component:Comment},
     {path: '/Circles',component:Circles}, //所有上传内容
     {path: '/', component: Footer},
     {path: '/Recommend', component: Recommend},

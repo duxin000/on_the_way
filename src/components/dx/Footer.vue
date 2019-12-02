@@ -45,11 +45,11 @@
 
 <script>
     import index from "../../views/dx/index.vue"  //头部导航
-    import Recommend from "./Recommend.vue"  //推荐
-    import Communityhead from '../../views/dx/Community_head.vue'  //社区
+    import Recommend from "./Recommend.vue"  //首页
+    import Communityhead from '../../views/dx/Community_head.vue'  //推荐
     import Personal from '../../views/wyf/Personal.vue'  //个人主页
-    import upload from '../../views/wz/upload.vue'  //个人主页
-    import Circles from '../../views/wz/Circles.vue'
+    import upload from '../../views/wz/upload.vue'  //上传
+    import Circles from '../../views/wz/Circles.vue'//社区
     export default {
         data() {
             return {
