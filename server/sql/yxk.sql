@@ -65,8 +65,8 @@ CREATE TABLE yxk_comment(
   did int(255),
   pdesc VARCHAR(521),
   time VARCHAR(521),
-  uname VARCHAR(521),
-)
+  uname VARCHAR(521)
+);
 /*---------------------------*/
 /***景点分类插入***/
 INSERT INTO yxk_sort VALUES
