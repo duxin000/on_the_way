@@ -2,7 +2,9 @@
     <div class="lunbo">
         <mt-swipe :auto="5000" :show-indicators="false">
             <mt-swipe-item v-for="(item,i) of list" :key="i">
-                <img :src="`http://127.0.0.1:5050/${item.img}`" alt="">
+                <router-link to="/Lunbo_detail">
+                    <img :src="`http://127.0.0.1:5050/${item.img}`" alt="">
+                </router-link>
             </mt-swipe-item>
         </mt-swipe>
     </div>
