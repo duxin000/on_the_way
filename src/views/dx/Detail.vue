@@ -106,6 +106,12 @@ export default {
             this.cang = "已收藏";
             this.shoucang = require("../../../public/imgs/dx/shoucang1.png");
             this.bg = "red";
+            var url='users/addcart/';
+            var {title,place,season,way}=this.lists[0];
+            var obj={title,place,season,way};
+            this.axios.get(url,{params:obj}).then(res=>{
+                console.log(res);
+            }).catch(err=>{console.log(err)})
           }else{
             this.cang = "加入收藏";
             this.shoucang = require("../../../public/imgs/dx/shoucang.png");
@@ -134,91 +140,62 @@ export default {
                 console.log(err);
             })
         },
-        components: {
-            "Detail-lunbo": Detail_lunbo,
+        getUname() {
+            var url = "/users/person";
+            this.axios.get(url).then(res => {
+                this.uname = res.data.uname;
+                console.log(this.uname);
+            })
         },
-        methods: {
-            collect(){
-              var url='users/addcart/';
-              var {title,place,season,way}=this.lists[0];
-              var obj={title,place,season,way};
-              this.axios.get(url,{params:obj}).then(res=>{
-                   console.log(res);
-              }).catch(err=>{console.log(err)})
-            },
-            p(s) {
-                return s < 10 ? '0' + s : s
-            },
-            abc() {
-                var url = "homepage/list/";
-                var obj = { detail_id: this.detail_id };
-                this.axios.get(url, { params: obj }).then(res => {
-                    this.lists = res.data;
-                    console.log(this.lists);
-                    // console.log(1)
-                }).catch(err => {
-                    console.log(err);
+        comment() {
+            var url = "upload/isLogin"
+            this.axios.get(url)
+                .then(res => {
+                    console.log(res);
+                    this.code = res.data.code;
+                    console.log("code=" + this.code)
+                    if (this.code == -1) {
+                        this.$messagebox.consfirm("请登录")
+                    } else {
+                        var url = "upload/comment";
+                        var d = new Date();
+                        var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
+                        var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
+                        this.time = resDate + " " + resTime;
+                        var obj = {
+                            pdesc: this.pdesc,
+                            did: this.detail_id,
+                            uname: this.uname,
+                            time: this.time
+                        };
+                        console.log(obj)
+                        this.axios.post(url, this.qs.stringify(obj)).then(res => {
+                            // console.log("成功");
+                            this.pdesc = "";
+                            this.$toast("发表成功")
+                            location.reload();
+                        })
+                    }
+            })
+        },
+        getTxt() {
+            var url = "upload/commentxt";
+            var objdid = {
+                did: this.detail_id
+            };
+            // console.log(objdid)
+            this.axios.get(url, { params: objdid })
+                .then(res => {
+                    console.log(res.data.msg);
+                    this.items = res.data.msg;
                 })
             },
-            getUname() {
-                var url = "/users/person";
-                this.axios.get(url).then(res => {
-                    this.uname = res.data.uname;
-                    console.log(this.uname);
-                })
-            },
-            comment() {
-                var url = "upload/isLogin"
-                this.axios.get(url)
-                    .then(res => {
-                        console.log(res);
-                        this.code = res.data.code;
-                        console.log("code=" + this.code)
-                        if (this.code == -1) {
-                            this.$messagebox.consfirm("请登录")
-                        } else {
-                            var url = "upload/comment";
-                            var d = new Date();
-                            var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
-                            var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
-                            this.time = resDate + " " + resTime;
-                            var obj = {
-                                pdesc: this.pdesc,
-                                did: this.detail_id,
-                                uname: this.uname,
-                                time: this.time
-                            };
-                            console.log(obj)
-                            this.axios.post(url, this.qs.stringify(obj)).then(res => {
-                                // console.log("成功");
-                                this.pdesc = "";
-                                this.$toast("发表成功")
-                                location.reload();
-                            })
-                        }
-                    })
-            },
-            getTxt() {
-                var url = "upload/commentxt";
-                var objdid = {
-                    did: this.detail_id
-                };
-                // console.log(objdid)
-                this.axios.get(url, { params: objdid })
-                    .then(res => {
-                        console.log(res.data.msg);
-                        this.items = res.data.msg;
-                    })
-            },
-
-        },
         created() {
             this.abc();
             this.getTxt();
             this.getUname()
         },
-        
-    },
+     },
     created() {
       this.abc();
       this.getTxt();
