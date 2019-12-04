@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- 发布内容 -->
-    <div  class="cc" v-for="(item,i) of lists" :key="i">
+    <div class="cc" v-for="(item,i) of lists" :key="i">
       <div class="img">
         <img :src="`http://127.0.0.1:5050${item.psrc.slice(8)}`" class="show_img">
         <div class="getpdesc">
@@ -9,9 +9,7 @@
         </div>
         <span class="uptime">{{item.upTime}}</span>
       </div>
-      
     </div>
-    
   </div>
 </template>
 <script>
@@ -36,12 +34,12 @@
         var url = "/users/circle";
         this.axios.get(url)
           .then(res => {
-           // console.log(res);
+            // console.log(res);
             this.uid = res.data.code[0].uid;
             this.pdesc = res.data.code[0].pdesc;
             this.psrc = res.data.code[0].psrc.slice(8);
             console.log(this.psrc);
-           // this.upTime = res.data.code[0].upTime;
+            // this.upTime = res.data.code[0].upTime;
             // this.psrc = this.psrc;
             // console.log(this.psrc);
             this.lists = res.data.code;
@@ -71,9 +69,11 @@
     justify-content: space-around;
     flex-wrap: wrap;
   }
-   .cc{
+
+  .cc {
     width: 45%;
-   }
+  }
+
   .img {
     margin-top: 15px;
   }
@@ -89,7 +89,7 @@
     margin-top: 10px;
     margin-left: 20px;
     font-weight: bold;
-    
+
   }
 
   .uptime {

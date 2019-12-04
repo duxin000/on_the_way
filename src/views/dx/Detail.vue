@@ -58,15 +58,15 @@
                     </router-link>
                 </div>
                 <div class="tit-canter">
-                    <button @click="collect" >
-                        加入收藏
-                        <img src="../../../public/imgs/dx/shoucang.png" alt="">
+                    <button @click="collect" :style="`background:${bg}`">
+                      {{cang}}
+                      <img :src="shoucang" alt="">
                     </button>
                 </div>
                 <div class="tit-right">
-                    <button>
-                        点赞
-                        <img src="../../../public/imgs/dx/dianzan2.png" alt="">
+                    <button @click="like" :style="`background:${gb}`">
+                      {{dian}}
+                      <img :src="dianzan" alt="">
                     </button>
                 </div>
             </div>
@@ -75,17 +75,64 @@
 </template>
 
 <script>
-    import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
-    export default {
-        props: ["detail_id"],//自动获得地址栏传来的lid参数值
-        data() {
-            return {
-                lists: [],
-                pdesc: "",
-                uname: '',
-                time: "",
-                items: [],
-            }
+import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
+export default {
+    props:["detail_id"],//自动获得地址栏传来的lid参数值
+    data() {
+        return {
+            cang:"加入收藏",
+            bg:'#ccc',
+            lists: [],
+            pdesc:"",
+            uname:'',
+            time:"",
+            items:[],
+            shoucang:require("../../../public/imgs/dx/shoucang.png"),
+            dianzan:require("../../../public/imgs/dx/dianzan2.png"),
+            gb:'#ccc',
+            dian:'点赞'
+            
+        }
+    },
+    components:{
+        "Detail-lunbo":Detail_lunbo,
+    },
+    methods: {
+        p(s) {
+          return s < 10 ? '0' + s : s
+        },
+        collect(){
+          if( this.cang==="加入收藏"){
+            this.cang = "已收藏";
+            this.shoucang = require("../../../public/imgs/dx/shoucang1.png");
+            this.bg = "red";
+          }else{
+            this.cang = "加入收藏";
+            this.shoucang = require("../../../public/imgs/dx/shoucang.png");
+            this.bg = "#ccc";
+          }
+        },
+        like(){
+          if( this.dian=="点赞"){
+            this.dian = "已点";
+            this.dianzan = require('../../../public/imgs/dx/dianzan1.png');
+            this.gb = "red";
+          }else{
+            this.dian = "点赞";
+            this.dianzan = require('../../../public/imgs/dx/dianzan2.png');
+            this.gb = "#ccc";
+          }
+        },
+        abc() {
+            var url = "homepage/list/";
+            var obj={detail_id:this.detail_id};
+            this.axios.get(url,{params:obj}).then(res => {
+                this.lists = res.data;
+                console.log(this.lists);
+                // console.log(1)
+            }).catch(err => {
+                console.log(err);
+            })
         },
         components: {
             "Detail-lunbo": Detail_lunbo,
@@ -170,7 +217,14 @@
             this.getTxt();
             this.getUname()
         },
-    }
+        
+    },
+    created() {
+      this.abc();
+      this.getTxt();
+      this.getUname();
+    },
+}
 </script>
 
 
