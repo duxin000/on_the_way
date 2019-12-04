@@ -41,7 +41,7 @@ router.post("/logon", (req, res) => {
   var sql = "insert into yxk_login set uname=?,upwd = md5(?),phone=?";
   pool.query(sql, [uname, upwd, phone], (err, result) => {
     if (err) throw err;
-    console.log(result);
+    // console.log(result);
     if (result.affectedRows > 0) {
       res.send({ code: 1, msg: "注册成功" });
     } else {
@@ -75,7 +75,7 @@ router.get("/circle", (req, res) => {
   pool.query(sql, [uid], (err, result) => {
     if (err) throw err;
     if (result.length > 0) {
-      console.log(result);
+      // console.log(result);
       res.send({ code: result })
     } else {
       res.send("查询失败")

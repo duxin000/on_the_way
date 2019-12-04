@@ -22,11 +22,12 @@ router.post("/upload",(req,res)=>{
         }
     });
   }
+  console.log(str);
   var sql='INSERT INTO yxk_upload set uid=?,pdesc=?,psrc=?,upTime=?';
   pool.query(sql,[obj.uid,obj.msg,str,obj.time],(err,result)=>{
     //console.log(result)
     if(err) throw err;
-    console.log(result);
+    // console.log(result);
     if(result.affectedRows>0){
       res.send({code:2,msg:'成功'})
     }else{
