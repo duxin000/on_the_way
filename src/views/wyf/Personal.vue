@@ -24,8 +24,8 @@
     </div>
     <div class="body">
       <van-tabs v-model="active">
-        <van-tab title="收藏">内容 1</van-tab>
-        <van-tab title="我发布的"><cle></cle></van-tab>
+        <van-tab title="我的收藏">内容 1</van-tab>
+        <van-tab title="我的发布"><cle></cle></van-tab>
       </van-tabs>
     </div>
     <van-button @click="bon" class="b-3" plain type="info" size="large">退出登录</van-button>

@@ -65,11 +65,11 @@ export default {
       var $message=document.getElementById("message");
       this.msg_1=$message.value;
       var url = "upload/upload";
-      console.log(this.uid);
-      console.log(this.time)
-      console.log(this.msg_1)
-      console.log(this.content.length)
-      console.log(this.uname)
+      // console.log(this.uid);
+      // console.log(this.time)
+      // console.log(this.msg_1)
+      // console.log(this.content.length)
+      // console.log(this.uname)
       var obj={count:this.count,uid:this.uid,time:this.time,msg:this.msg_1,content:this.content};
       if(this.msg_1=="" && this.content.length<1){
         this.$messagebox("提示","请传入图片或文字")

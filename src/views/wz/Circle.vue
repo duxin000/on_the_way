@@ -9,7 +9,7 @@
         </div>
         <span class="uptime">{{item.upTime}}</span>
       </div>
-      <hr>
+      
     </div>
     
   </div>
@@ -36,17 +36,17 @@
         var url = "/users/circle";
         this.axios.get(url)
           .then(res => {
-            console.log(res);
+           // console.log(res);
             this.uid = res.data.code[0].uid;
             this.pdesc = res.data.code[0].pdesc;
             this.psrc = res.data.code[0].psrc.slice(8);
             console.log(this.psrc);
-            this.upTime = res.data.code[0].upTime;
+           // this.upTime = res.data.code[0].upTime;
             // this.psrc = this.psrc;
             // console.log(this.psrc);
             this.lists = res.data.code;
-            console.log(this.lists);
-            console.log(this.lists.pdesc);
+            //console.log(this.lists);
+            //console.log(this.lists.pdesc);
 
           })
       }
@@ -72,12 +72,10 @@
     flex-wrap: wrap;
   }
    .cc{
-    width: 50%;
+    width: 45%;
    }
   .img {
-    margin-left: 20px;
     margin-top: 15px;
-   
   }
 
   .show_img {

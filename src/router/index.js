@@ -43,8 +43,10 @@ import Lunbo_detail from '../views/dx/Lunbo_detail.vue'  //首页轮播详情
 import Comment from '../components/wz/Comment.vue'  //评论组件
 import CommentText from '../components/wz/CommentText.vue' //评论显示组件
 import Broadcast from '../components/wz/Broadcast.vue' //广播组件
+import Collect from "../views/wyf/Collect.vue"  //主页收藏
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
+    {path:'/Collect',component:Collect},
     {path:'/Broadcast',component:Broadcast},
     {path:'/CommentText',component:CommentText},
     {path:'/Comment',component:Comment},

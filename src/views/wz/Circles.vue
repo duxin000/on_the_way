@@ -50,13 +50,13 @@ export default {
         this.uname = res.data.code[0].uname;
         this.pdesc=res.data.code[0].pdesc;
         this.psrc=res.data.code[0].psrc.slice(8);
-        console.log(this.psrc);
+        //console.log(this.psrc);
         this.upTime=res.data.code[0].upTime;
         // this.psrc = this.psrc;
         // console.log(this.psrc);
         this.lists = res.data.code;
-        console.log(this.lists);
-        console.log(this.lists.pdesc);
+        //console.log(this.lists);
+        //console.log(this.lists.pdesc);
       })
     },
     

@@ -46,9 +46,11 @@ CREATE TABLE yxk_pic(
 /***收藏车***/
 CREATE TABLE yxk_collect(
   oid INT PRIMARY KEY AUTO_INCREMENT,
-  login_id INT,       #用户编号
-  collect_id INT,     #景点编号
-  is_checked BOOLEAN  #是否已勾选，是否删除
+  login_id INT,         #用户编号
+  collect_title VARCHAR(500),   #主标题
+  collect_place VARCHAR(16),    #地点
+  collect_season VARCHAR(16),    #季节
+  collect_way  VARCHAR(100)   #图片路径
 );
 /***上传***/
 CREATE TABLE yxk_upload(
@@ -56,7 +58,16 @@ CREATE TABLE yxk_upload(
   uid INT(255),           #当前用户
   pdesc VARCHAR(512),     #发表文字
   psrc  VARCHAR(2048),    #图片路径
-  upTime VARCHAR(128)    #发表时间
+  upTime VARCHAR(128)     #发表时间
+);
+/***评论***/
+CREATE TABLE yxk_comment(
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT(255),
+  did int(255),
+  pdesc VARCHAR(521),
+  time VARCHAR(521),
+  uname VARCHAR(521)
 );
 /*---------------------------*/
 /***景点分类插入***/
