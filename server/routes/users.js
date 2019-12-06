@@ -103,14 +103,21 @@ router.get("/addcart", (req, res) => {
   var collect_title = req.query.title;
   var collect_place = req.query.place;
   var collect_season = req.query.season;
-  var collect_way=req.query.way
-  var sql = "INSERT INTO yxk_collect SET login_id=?,collect_title=?,collect_place=?,collect_season=?,collect_way=?";
-  pool.query(sql, [login_id, collect_title, collect_place, collect_season,collect_way], (err, result) => {
+  var collect_way = req.query.way;
+  pool.query("SELECT * FROM yxk_collect WHERE login_id=? and collect_title=?", [login_id, collect_title], (err, result) => {
     if (err) throw err;
-    if (result.affectedRows > 0) {
-      res.send({ code: 1, msg: "加入购物车成功" });
+    if (result.length > 0) {
+      res.send({ code: -1, msg: "不能重复收藏" });
     } else {
-      res.send({ code: -1, msg: "加入购物车失败" });
+      var sql = "INSERT INTO yxk_collect SET login_id=?,collect_title=?,collect_place=?,collect_season=?,collect_way=?";
+      pool.query(sql, [login_id, collect_title, collect_place, collect_season, collect_way], (err, result) => {
+        if (err) throw err;
+        if (result.affectedRows > 0) {
+          res.send({ code: 1, msg: "加入购物车成功" });
+        } else {
+          res.send({ code: -1, msg: "加入购物车失败" });
+        }
+      })
     }
   })
 })
@@ -120,10 +127,10 @@ router.get("/inquiry", (req, res) => {
   var sql = "SELECT * FROM yxk_collect WHERE login_id=?"
   pool.query(sql, [login_id], (err, result) => {
     if (err) throw err;
-    if(result.length>0){
+    if (result.length > 0) {
       console.log(result);
-      res.send({code:result})
-    }else{
+      res.send({ code: result })
+    } else {
       res.send("查询失败")
     }
   })

@@ -59,14 +59,14 @@
                 </div>
                 <div class="tit-canter">
                     <button @click="collect" :style="`background:${bg}`">
-                      {{cang}}
-                      <img :src="shoucang" alt="">
+                        {{cang}}
+                        <img :src="shoucang" alt="">
                     </button>
                 </div>
                 <div class="tit-right">
                     <button @click="like" :style="`background:${gb}`">
-                      {{dian}}
-                      <img :src="dianzan" alt="">
+                        {{dian}}
+                        <img :src="dianzan" alt="">
                     </button>
                 </div>
             </div>
@@ -75,133 +75,133 @@
 </template>
 
 <script>
-import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
-export default {
-    props:["detail_id"],//自动获得地址栏传来的lid参数值
-    data() {
-        return {
-            cang:"加入收藏",
-            bg:'#ccc',
-            lists: [],
-            pdesc:"",
-            uname:'',
-            time:"",
-            items:[],
-            shoucang:require("../../../public/imgs/dx/shoucang.png"),
-            dianzan:require("../../../public/imgs/dx/dianzan2.png"),
-            gb:'#ccc',
-            dian:'点赞'
-            
-        }
-    },
-    components:{
-        "Detail-lunbo":Detail_lunbo,
-    },
-    methods: {
-        p(s) {
-          return s < 10 ? '0' + s : s
+    import Detail_lunbo from "../../components/dx/Detail_lunbo.vue"  //轮播
+    export default {
+        props: ["detail_id"],//自动获得地址栏传来的lid参数值
+        data() {
+            return {
+                cang: "加入收藏",
+                bg: '#ccc',
+                lists: [],
+                pdesc: "",
+                uname: '',
+                time: "",
+                items: [],
+                shoucang: require("../../../public/imgs/dx/shoucang.png"),
+                dianzan: require("../../../public/imgs/dx/dianzan2.png"),
+                gb: '#ccc',
+                dian: '点赞'
+
+            }
         },
-        collect(){
-          if( this.cang==="加入收藏"){
-            this.cang = "已收藏";
-            this.shoucang = require("../../../public/imgs/dx/shoucang1.png");
-            this.bg = "red";
-            var url='users/addcart/';
-            var {title,place,season,way}=this.lists[0];
-            var obj={title,place,season,way};
-            this.axios.get(url,{params:obj}).then(res=>{
-                console.log(res);
-            }).catch(err=>{console.log(err)})
-          }else{
-            this.cang = "加入收藏";
-            this.shoucang = require("../../../public/imgs/dx/shoucang.png");
-            this.bg = "#ccc";
-          }
+        components: {
+            "Detail-lunbo": Detail_lunbo,
         },
-        like(){
-          if( this.dian=="点赞"){
-            this.dian = "已点";
-            this.dianzan = require('../../../public/imgs/dx/dianzan1.png');
-            this.gb = "red";
-          }else{
-            this.dian = "点赞";
-            this.dianzan = require('../../../public/imgs/dx/dianzan2.png');
-            this.gb = "#ccc";
-          }
-        },
-        abc() {
-            var url = "homepage/list/";
-            var obj={detail_id:this.detail_id};
-            this.axios.get(url,{params:obj}).then(res => {
-                this.lists = res.data;
-                console.log(this.lists);
-                // console.log(1)
-            }).catch(err => {
-                console.log(err);
-            })
-        },
-        getUname() {
-            var url = "/users/person";
-            this.axios.get(url).then(res => {
-                this.uname = res.data.uname;
-                console.log(this.uname);
-            })
-        },
-        comment() {
-            var url = "upload/isLogin"
-            this.axios.get(url)
-                .then(res => {
-                    console.log(res);
-                    this.code = res.data.code;
-                    console.log("code=" + this.code)
-                    if (this.code == -1) {
-                        this.$messagebox.consfirm("请登录")
-                    } else {
-                        var url = "upload/comment";
-                        var d = new Date();
-                        var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
-                        var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
-                        this.time = resDate + " " + resTime;
-                        var obj = {
-                            pdesc: this.pdesc,
-                            did: this.detail_id,
-                            uname: this.uname,
-                            time: this.time
-                        };
-                        console.log(obj)
-                        this.axios.post(url, this.qs.stringify(obj)).then(res => {
-                            // console.log("成功");
-                            this.pdesc = "";
-                            this.$toast("发表成功")
-                            location.reload();
-                        })
-                    }
-            })
-        },
-        getTxt() {
-            var url = "upload/commentxt";
-            var objdid = {
-                did: this.detail_id
-            };
-            // console.log(objdid)
-            this.axios.get(url, { params: objdid })
-                .then(res => {
-                    console.log(res.data.msg);
-                    this.items = res.data.msg;
+        methods: {
+            p(s) {
+                return s < 10 ? '0' + s : s
+            },
+            collect() {
+                if (this.cang === "加入收藏") {
+                    this.cang = "取消收藏";
+                    this.shoucang = require("../../../public/imgs/dx/shoucang1.png");
+                    this.bg = "red";
+                    var url = 'users/addcart/';
+                    var { title, place, season, way } = this.lists[0];
+                    var obj = { title, place, season, way };
+                    this.axios.get(url, { params: obj }).then(res => {
+                        console.log(res.data.code);
+                        if(res.data.code==1){
+                            this.$toast("收藏成功");
+                        }else{
+                            this.$toast("不能重复收藏");
+                        }
+                    }).catch(err => { console.log(err) })
+                } else {
+                    this.cang = "加入收藏";
+                    this.shoucang = require("../../../public/imgs/dx/shoucang.png");
+                    this.bg = "#ccc";
+                }
+            },
+            like() {
+                if (this.dian == "点赞") {
+                    this.dian = "已点";
+                    this.dianzan = require('../../../public/imgs/dx/dianzan1.png');
+                    this.gb = "red";
+                } else {
+                    this.dian = "点赞";
+                    this.dianzan = require('../../../public/imgs/dx/dianzan2.png');
+                    this.gb = "#ccc";
+                }
+            },
+            abc() {
+                var url = "homepage/list/";
+                var obj = { detail_id: this.detail_id };
+                this.axios.get(url, { params: obj }).then(res => {
+                    this.lists = res.data;
+                    console.log(this.lists);
+                    // console.log(1)
+                }).catch(err => {
+                    console.log(err);
                 })
             },
+            getUname() {
+                var url = "/users/person";
+                this.axios.get(url).then(res => {
+                    this.uname = res.data.uname;
+                    console.log(this.uname);
+                })
+            },
+            comment() {
+                var url = "upload/isLogin"
+                this.axios.get(url)
+                    .then(res => {
+                        console.log(res);
+                        this.code = res.data.code;
+                        console.log("code=" + this.code)
+                        if (this.code == -1) {
+                            this.$messagebox.consfirm("请登录")
+                        } else {
+                            var url = "upload/comment";
+                            var d = new Date();
+                            var resDate = d.getFullYear() + '-' + this.p((d.getMonth() + 1)) + '-' + this.p(d.getDate());
+                            var resTime = this.p(d.getHours()) + ':' + this.p(d.getMinutes()) + ':' + this.p(d.getSeconds());
+                            this.time = resDate + " " + resTime;
+                            var obj = {
+                                pdesc: this.pdesc,
+                                did: this.detail_id,
+                                uname: this.uname,
+                                time: this.time
+                            };
+                            console.log(obj)
+                            this.axios.post(url, this.qs.stringify(obj)).then(res => {
+                                // console.log("成功");
+                                this.pdesc = "";
+                                this.$toast("发表成功")
+                                location.reload();
+                            })
+                        }
+                    })
+            },
+            getTxt() {
+                var url = "upload/commentxt";
+                var objdid = {
+                    did: this.detail_id
+                };
+                // console.log(objdid)
+                this.axios.get(url, { params: objdid })
+                    .then(res => {
+                        console.log(res.data.msg);
+                        this.items = res.data.msg;
+                    })
+            },
+        },
         created() {
             this.abc();
             this.getTxt();
-            this.getUname()
+            this.getUname();
         },
-     },
-    created() {
-      this.abc();
-      this.getTxt();
-      this.getUname();
-    },
-}
+    }
 </script>
 
 
