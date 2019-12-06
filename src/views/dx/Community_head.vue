@@ -16,10 +16,10 @@
 
 
 <script>
-import Recommend from "../../components/dx/Recommend.vue"  //推荐
+import Recommend_1 from "../../components/dx/Recommend_1.vue"  //推荐
 export default {
     components:{
-        "recommend":Recommend,
+        "recommend":Recommend_1,
     },
     data() {
         return {

@@ -11,7 +11,6 @@
         </div>   
     </div>
 </template>
-
 <script>
 import Lunbo from "../../components/dx/Lunbo.vue"  //轮播
 import Recommend from "../../components/dx/Recommend.vue"  //推荐

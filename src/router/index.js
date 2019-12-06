@@ -18,6 +18,7 @@ import VueRouter from 'vue-router'
 //http://127.0.0.1:8080/#/Lunbo_detail
 //http://127.0.0.1:8080/#/Landscape
 //http://127.0.0.1:8080/#/Top
+//http://127.0.0.1:8080/#/Recommend_1
 Vue.use(VueRouter)
 //子组件
 // import Lunbo from "../components/dx/Lunbo.vue"  //轮播
@@ -47,6 +48,7 @@ import CommentText from '../components/wz/CommentText.vue' //评论显示组件
 import Broadcast from '../components/wz/Broadcast.vue' //广播组件
 import Landscape from '../components/dx/Landscape.vue' //首页左侧滑动
 import Top from '../components/dx/Top.vue' //返回顶部
+import Recommend_1 from "../components/dx/Recommend_1.vue"  //推荐
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
     {path:'/Broadcast',component:Broadcast},
@@ -73,6 +75,7 @@ const routes = [
     {path: '/Lunbo_detail', component:Lunbo_detail},    //首页轮播详情
     {path: '/Landscape', component:Landscape},    //首页左侧滑动
     {path: '/Top', component:Top},    //返回顶部
+    {path: '/Recommend_1', component: Recommend_1},
 ]
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
