@@ -49,8 +49,10 @@ import Broadcast from '../components/wz/Broadcast.vue' //广播组件
 import Landscape from '../components/dx/Landscape.vue' //首页左侧滑动
 import Top from '../components/dx/Top.vue' //返回顶部
 import Recommend_1 from "../components/dx/Recommend_1.vue"  //推荐
+import Collect from "../views/wyf/Collect.vue"  //主页收藏
 const routes = [
     // {path: '/Lunbo', component: Lunbo},
+    {path:'/Collect',component:Collect},
     {path:'/Broadcast',component:Broadcast},
     {path:'/CommentText',component:CommentText},
     {path:'/Comment',component:Comment},

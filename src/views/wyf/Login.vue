@@ -66,8 +66,8 @@
   .v_code{
     z-index: 1;
     position: absolute;
-    top:302px;
-    left: 52px;
+    top:45%;
+    width: 100%;
   }
   .post {
     text-align: center;

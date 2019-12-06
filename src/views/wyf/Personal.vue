@@ -24,8 +24,8 @@
     </div>
     <div class="body">
       <van-tabs v-model="active">
-        <van-tab title="收藏">内容 1</van-tab>
-        <van-tab title="我发布的"><cle></cle></van-tab>
+        <van-tab title="我的收藏"><coll-ect></coll-ect></van-tab>
+        <van-tab title="我的发布"><cle></cle></van-tab>
       </van-tabs>
     </div>
     <van-button @click="bon" class="b-3" plain type="info" size="large">退出登录</van-button>
@@ -34,9 +34,11 @@
 
 <script>
 import Circle from "../wz/Circle.vue";
+import Collect from "./Collect.vue";
 export default {
   components: {
-    cle: Circle
+    cle: Circle,
+    collEct:Collect
   },
   data() {
     return {
@@ -93,7 +95,7 @@ export default {
     background-image: linear-gradient(to bottom, #4188F2, #699FF5);
   }
   .b-3{
-     margin-top: 76%;
+     margin-top: 10%;
   }
 
 h1 {

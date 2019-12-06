@@ -13,7 +13,6 @@
         <img :src="`http://127.0.0.1:5050${item.psrc.slice(8)}`" class="show_img">
       </div>
       <p class="gettime">{{item.upTime}}</p>
-      <hr>
     </div>
   </div>
 </template>
@@ -50,13 +49,13 @@ export default {
         this.uname = res.data.code[0].uname;
         this.pdesc=res.data.code[0].pdesc;
         this.psrc=res.data.code[0].psrc.slice(8);
-        console.log(this.psrc);
+        //console.log(this.psrc);
         this.upTime=res.data.code[0].upTime;
         // this.psrc = this.psrc;
         // console.log(this.psrc);
         this.lists = res.data.code;
-        console.log(this.lists);
-        console.log(this.lists.pdesc);
+        //console.log(this.lists);
+        //console.log(this.lists.pdesc);
       })
     },
     
@@ -91,6 +90,8 @@ export default {
     margin-left: 15px;
   }
   .gettime{
-     margin-left: 15px;
-  }
+     padding-left:15px;
+     border-bottom:1px dashed gray;
+     margin-bottom: 55px;   
+    }
 </style>

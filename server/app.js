@@ -17,9 +17,9 @@ app.use(cors({
 }))
 app.listen(5050);
 //使用body-parser中间件
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended:true}));
+// app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({limit: '2100000kb', extended:false}));
+app.use(bodyParser.json({limit : "2100000kb"})); 
 //托管静态资源到public目录下
 app.use(express.static('public'));
 //7:配置session环境

@@ -46,5 +46,6 @@
       width: 310px;
       margin: 0 auto;
    }
+  
 </style>
 
