@@ -34,7 +34,7 @@ CREATE TABLE yxk_detail(
   place  VARCHAR(16),         #地点
   season VARCHAR(16),         #季节
   details VARCHAR(500),       #详情介绍
-  way     VARCHAR(128)        #图片路径
+  way     VARCHAR(128)        #图片路径    
 );
 
 /***景点图片***/
